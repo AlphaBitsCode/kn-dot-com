@@ -82,11 +82,15 @@ const ClientsSection: React.FC = () => {
   }, []);
 
   const clients = [
-    { name: "Bluebird Indonesia", delay: 100 },
-    { name: "Highlands Coffee", delay: 200 },
-    { name: "Vascara", delay: 300 },
-    { name: "7-Eleven Vietnam", delay: 400 },
-    { name: "VCAM", delay: 500 },
+    { name: "MAUA", logo: "/images/logos/maua.png", delay: 100 },
+    { name: "7Eleven", logo: "/images/logos/7Eleven.png", delay: 100 },
+    { name: "Bluebird", logo: "/images/logos/Bluebird.png", delay: 200 },
+    { name: "Highlands", logo: "/images/logos/highlands.png", delay: 300 },
+    { name: "OP3N", logo: "/images/logos/op3n.png", delay: 400 },
+    { name: "Sieuviet", logo: "/images/logos/sieuviet.png", delay: 500 },
+    { name: "Vascara", logo: "/images/logos/vascara.png", delay: 600 },
+    { name: "VCAM", logo: "/images/logos/vcam.png", delay: 700 },
+    { name: "VPOST", logo: "/images/logos/vpost.png", delay: 800 },
   ];
 
   return (
@@ -106,6 +110,7 @@ const ClientsSection: React.FC = () => {
             <ClientLogo
               key={index}
               name={client.name}
+              logo={client.logo}
               delay={client.delay}
             />
           ))}

@@ -74,12 +74,6 @@ const NavBar: React.FC = () => {
             >
               Clients
             </button>
-            <button
-              className="text-sm text-gray-700 hover:text-highlight dark:text-gray-300 dark:hover:text-white transition-colors"
-              onClick={() => scrollToSection("photography")}
-            >
-              Photography
-            </button>
             <Button 
               variant="default" 
               size="sm"

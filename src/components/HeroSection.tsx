@@ -22,7 +22,7 @@ const HeroSection: React.FC = () => {
             <div className="relative w-full max-w-md">
               <div className="aspect-[3/4] rounded-xl overflow-hidden shadow-2xl">
                 <img 
-                  src="https://alphabits.team/images/office/profile.jpg"
+                  src="images/kent_2.jpg"
                   alt="Kent Nguyen portrait" 
                   className="w-full h-full object-cover"
                 />
@@ -41,7 +41,7 @@ const HeroSection: React.FC = () => {
             </h1>
             
             <p className="text-xl md:text-2xl mb-10 font-light text-gray-600 dark:text-gray-400">
-              Over 20 years, 10+ ventures, and still pushing code daily.
+              Over 20 years, 15+ ventures, and still pushing code daily.
             </p>
             
             <Button 

@@ -34,7 +34,7 @@ const AboutSection: React.FC = () => {
               </h2>
               
               <p className="text-lg text-gray-700 dark:text-gray-300 mb-6">
-                I'm a serial tech entrepreneur with over 20 years of experience. My core passion has always been coding, and I still find myself doing git push almost every day. Over the years, I've founded more than 10 different startups across various countries, gaining countless lessons from both successes and failures.
+                I'm a serial tech entrepreneur with over 20 years of experience. My core passion has always been coding, and I still find myself doing git push almost every day. Over the years, I've founded more than 15 different startups across various countries, gaining countless lessons from both successes and failures.
               </p>
               
               <p className="text-lg text-gray-700 dark:text-gray-300 mb-8">
@@ -53,7 +53,7 @@ const AboutSection: React.FC = () => {
           <div className="reveal" ref={el => el && elementsRef.current.push(el)}>
             <div className="relative">
               <div className="absolute -inset-4 bg-highlight/10 rounded-xl transform rotate-3"></div>
-              <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158" alt="Kent Nguyen" className="rounded-lg shadow-lg w-full h-auto object-cover relative z-10" />
+              <img src="/images/kent_1.jpg" alt="Kent Nguyen" className="rounded-lg shadow-lg w-full h-auto object-cover relative z-10" />
               <div className="absolute -bottom-4 -right-4 bg-white dark:bg-gray-800 p-4 shadow-lg rounded-lg z-20">
                 <p className="font-semibold text-gray-900 dark:text-white">
                   20+ Years Experience

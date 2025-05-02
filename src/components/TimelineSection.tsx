@@ -14,7 +14,8 @@ interface TimelineItem {
 
 const TimelineSection: React.FC = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
-  const [activeIndex, setActiveIndex] = useState<number | null>(null);
+  // Removed activeIndex and setActiveIndex
+  // const [activeIndex, setActiveIndex] = useState<number | null>(null);
   
   const timelineData: TimelineItem[] = [
     {
@@ -36,17 +37,18 @@ const TimelineSection: React.FC = () => {
       icon: "⚙️",
       description: "Started as a Venture Capital fund. Silicon Straits Foundry, the product development arm co-founded by Kent, built web, mobile, and hardware products for startups and enterprises in Southeast Asia.",
       achievements: [
-        "Grew team to around 100 people",
-        "Operated from offices in Singapore and Ho Chi Minh City"
+        "Grew team to around 100 people, 65 developers",
+        "Operated from offices in Singapore and Ho Chi Minh City",
+        "BOT for regional startups (Parcel Perform, 7-Eleven, Bluebird, MAUA)"
       ],
-      thumbnailId: "silicon"
+      thumbnailId: "sss"
     },
     {
       year: "2017",
       title: "Grab",
       role: "Head of Engineering Vietnam",
       icon: "🚖",
-      description: "Led one of Grab's engineering centres, focusing on utility features and internal tools.",
+      description: "Led one of Grab's engineering centres, focusing on utility features and internal tools, after acqui-hired by Grab Holdings.",
       achievements: [
         "Managed the transition of an acquired team",
         "Established internal collaborations"
@@ -59,6 +61,10 @@ const TimelineSection: React.FC = () => {
       role: "Co-founder",
       icon: "📊",
       description: "A boutique consulting firm focusing on Data and Business Intelligence, assisting Small and Medium-sized Enterprises (SMEs) with data consolidation and adopting modern BI tools.",
+      achievements: [
+        "Data/BI Consulting for SMEs in Vietnam during COVID",
+        "Podcast series on Digital Transformation for businesses",
+      ],
       thumbnailId: "anatics"
     },
     {
@@ -68,6 +74,7 @@ const TimelineSection: React.FC = () => {
       icon: "🔥",
       description: "Asia's first company focused on low-cost sand-based zero emission thermal energy storage (Sand Battery).",
       achievements: [
+        "Invented Home-made Prototype in November 2022",
         "Received pre-seed investment in January 2023",
         "Raised a Seed round of $1.5M in April 2024"
       ],
@@ -76,7 +83,7 @@ const TimelineSection: React.FC = () => {
     {
       year: "2023–Now",
       title: "Alpha Bits",
-      role: "AI Automation for Businesses",
+      role: "AI Workflow Automation for Businesses",
       icon: "🤖",
       description: "Positioning as a one-stop technology partner and CTO-as-a-Service, Alpha Bits specialises in AI Workflow Automation and Digital Transformation for SMBs.",
       achievements: [
@@ -137,7 +144,7 @@ const TimelineSection: React.FC = () => {
                 <div
                   key={index}
                   className={`timeline-entry animate-on-scroll relative mb-20 ${index % 2 === 0 ? "text-right" : "text-left"}`}
-                  onClick={() => handleItemClick(index)}
+                  // Removed onClick
                 >
                   <div
                     className={`flex items-center ${
@@ -157,7 +164,27 @@ const TimelineSection: React.FC = () => {
                               {item.icon} {item.title}
                             </div>
                             {/* Placeholder for the ken burns effect images */}
-                            <div className="timeline-thumbnail" data-thumbnail-id={item.thumbnailId}></div>
+                            <div className="timeline-thumbnail" data-thumbnail-id={item.thumbnailId}>
+                            <img
+                                src={`images/${
+                                  item.thumbnailId === "tgm"
+                                    ? "tgm.jpg"
+                                    : item.thumbnailId === "sss"
+                                    ? "sss_2.jpg"
+                                    : item.thumbnailId === "grab"
+                                    ? "grab_2.jpg"
+                                    : item.thumbnailId === "anatics"
+                                    ? "anatics_1.jpg"
+                                    : item.thumbnailId === "alterno"
+                                    ? "alterno_1.jpg"
+                                    : item.thumbnailId === "alphabits"
+                                    ? "alphabits_1.jpg"
+                                    : ""
+                                }`}
+                                alt={item.title}
+                                className="w-full h-full object-cover"
+                              />
+                            </div>
                           </div>
                         ) : (
                           <Skeleton className="aspect-video" />
@@ -190,11 +217,12 @@ const TimelineSection: React.FC = () => {
                         {item.description}
                       </p>
                       
-                      {activeIndex === index && item.achievements && (
+                      {/* Always show achievements if present */}
+                      {item.achievements && (
                         <div className="mt-4 text-sm">
                           <ul className={`list-disc ${index % 2 === 0 ? "text-right list-inside" : "pl-4"}`}>
                             {item.achievements.map((achievement, i) => (
-                              <li key={i} className="text-gray-600 dark:text-gray-400">
+                              <li key={i} className="text-gray-400 dark:text-gray-200">
                                 {achievement}
                               </li>
                             ))}
@@ -218,7 +246,7 @@ const TimelineSection: React.FC = () => {
                 <div
                   key={index}
                   className="timeline-entry animate-on-scroll timeline-item relative mb-12 pl-8"
-                  onClick={() => handleItemClick(index)}
+                  // Removed onClick
                 >
                   <div className="absolute -left-4 mt-1">
                     <div className="flex items-center justify-center w-8 h-8 bg-highlight rounded-full text-white">
@@ -229,12 +257,30 @@ const TimelineSection: React.FC = () => {
                   {/* Thumbnail */}
                   <div className="mb-4 overflow-hidden rounded-lg shadow-md transition-all hover:shadow-lg">
                     {item.thumbnailId ? (
-                      <div className="aspect-video bg-gray-100 dark:bg-gray-800 animate-pulse overflow-hidden relative">
-                        <div className="absolute inset-0 flex items-center justify-center text-gray-400 dark:text-gray-600">
+                      <div className="aspect-video bg-gray-100 dark:bg-gray-800 overflow-hidden relative">
+                        <img
+                          src={`images/${
+                            item.thumbnailId === "tgm"
+                              ? "tgm.jpg"
+                              : item.thumbnailId === "sss"
+                              ? "sss_1.jpg"
+                              : item.thumbnailId === "grab"
+                              ? "grab_1.jpg"
+                              : item.thumbnailId === "anatics"
+                              ? "anatics_1.jpg"
+                              : item.thumbnailId === "alterno"
+                              ? "alterno_1.jpg"
+                              : item.thumbnailId === "alphabits"
+                              ? "alphabits_1.jpg"
+                              : ""
+                          }`}
+                          alt={item.title}
+                          className="w-full h-full object-cover"
+                        />
+                        {/* Optionally, overlay icon/title as before */}
+                        <div className="absolute inset-0 flex items-center justify-center text-gray-400 dark:text-gray-600 pointer-events-none">
                           {item.icon} {item.title}
                         </div>
-                        {/* Placeholder for the ken burns effect images */}
-                        <div className="timeline-thumbnail" data-thumbnail-id={item.thumbnailId}></div>
                       </div>
                     ) : (
                       <Skeleton className="aspect-video" />
@@ -247,7 +293,9 @@ const TimelineSection: React.FC = () => {
                     </span>
                   </div>
                   
-                  <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-1">
+                  <h3
+                    className="text-xl font-bold text-gray-900 dark:text-white mb-1 flex items-center"
+                  >
                     {item.title}
                   </h3>
                   
@@ -259,11 +307,12 @@ const TimelineSection: React.FC = () => {
                     {item.description}
                   </p>
                   
-                  {activeIndex === index && item.achievements && (
+                  {/* Always show achievements if present */}
+                  {item.achievements && (
                     <div className="mt-4 text-sm">
-                      <ul className="list-disc pl-4">
+                      <ul className={`list-disc ${index % 2 === 0 ? "text-right list-inside" : "pl-4"}`}>
                         {item.achievements.map((achievement, i) => (
-                          <li key={i} className="text-gray-600 dark:text-gray-400">
+                          <li key={i} className="text-gray-700 dark:text-gray-300">
                             {achievement}
                           </li>
                         ))}
