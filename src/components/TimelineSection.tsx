@@ -29,6 +29,8 @@ const getImageName = (thumbnailId: string | undefined, isDesktop: boolean) => {
       return "alterno_1.jpg";
     case "alphabits":
       return "alphabits_1.jpg";
+    case "alphablock":
+      return isDesktop ? "alphablock_1.jpg" : "alphablock_2.jpg";
     default:
       return "";
   }
@@ -254,6 +256,19 @@ const TimelineSection: React.FC = () => {
         "Scalable AI agents deployment"
       ],
       thumbnailId: "alphabits"
+    },
+    {
+      year: "2025–Now",
+      title: "Alpha Block",
+      role: "Founder",
+      icon: "🌱",
+      description: "Alpha Block is an AIoT EdTech company building modular smart farming kits that make growing food fun, educational, and accessible for all ages. Combining sensors, cameras, automation, and AI-powered insights, Alpha Block turns indoor farming into an interactive learning experience — ideal for homes, schools, and innovation labs. Currently looking for funding.",
+      achievements: [
+        "Developed modular smart farming kits for education and home use",
+        "Integrated sensors, cameras, and automation for interactive learning",
+        "Promoting accessible and fun food growing experiences"
+      ],
+      thumbnailId: "alphablock" // Add an image if available, e.g. "alphablock"
     }
   ];
 
