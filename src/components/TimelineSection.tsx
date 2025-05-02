@@ -1,5 +1,5 @@
 
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef } from "react";
 import { Skeleton } from "@/components/ui/skeleton";
 
 interface TimelineItem {
@@ -12,11 +12,159 @@ interface TimelineItem {
   thumbnailId?: string;
 }
 
+const getImageName = (thumbnailId: string | undefined, isDesktop: boolean) => {
+  if (!thumbnailId) return "";
+  switch (thumbnailId) {
+    case "tgm":
+      return "tgm.jpg";
+    case "sss":
+      return isDesktop ? "sss_2.jpg" : "sss_1.jpg";
+    case "grab":
+      return isDesktop ? "grab_2.jpg" : "grab_1.jpg";
+    case "anatics":
+      return "anatics_1.jpg";
+    case "alterno":
+      return "alterno_1.jpg";
+    case "alphabits":
+      return "alphabits_1.jpg";
+    default:
+      return "";
+  }
+};
+
+interface TimelineItemCardProps {
+  item: TimelineItem;
+  index: number;
+  isDesktop: boolean;
+}
+
+const TimelineItemCard: React.FC<TimelineItemCardProps> = ({ item, index, isDesktop }) => {
+  const alignment = isDesktop ? (index % 2 === 0 ? "text-right" : "text-left") : "";
+  const justify = isDesktop ? (index % 2 === 0 ? "justify-end" : "justify-start") : "";
+  const px = isDesktop ? (index % 2 === 0 ? "pr-16" : "pl-16") : "";
+  const ulClass = index % 2 === 0 ? "text-right list-inside" : "pl-4";
+  const imageName = getImageName(item.thumbnailId, isDesktop);
+
+  return (
+    <div
+      className={`timeline-entry animate-on-scroll relative mb-${isDesktop ? "20" : "12"} ${alignment} ${isDesktop ? "" : "timeline-item pl-8"}`}
+    >
+      {isDesktop ? (
+        <div className={`flex items-center ${justify}`}>
+          <div className={`w-1/2 px-6 ${px}`}>
+            {/* Thumbnail */}
+            <div className="mb-4 overflow-hidden rounded-lg shadow-md transition-all hover:shadow-lg">
+              {item.thumbnailId ? (
+                <div className={`aspect-video bg-gray-100 dark:bg-gray-800 ${isDesktop ? "animate-pulse" : ""} overflow-hidden relative`}>
+                  <div className="timeline-thumbnail" data-thumbnail-id={item.thumbnailId}>
+                    <img
+                      src={`images/${imageName}`}
+                      alt={item.title}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                </div>
+              ) : (
+                <Skeleton className="aspect-video" />
+              )}
+            </div>
+            <div className="mb-2">
+              <span className="inline-block bg-highlight/10 text-highlight px-3 py-1 rounded-full text-sm font-medium">
+                {item.year}
+              </span>
+            </div>
+            <h3 className="flex items-center text-xl font-bold text-gray-900 dark:text-white mb-1">
+              {index % 2 === 1 && (
+                <>
+                  <span className="mr-2">{item.icon}</span>
+                  {item.title}
+                </>
+              )}
+              {index % 2 === 0 && (
+                <>
+                  {item.title}
+                  <span className="ml-2">{item.icon}</span>
+                </>
+              )}
+            </h3>
+            <p className="text-gray-600 dark:text-gray-400 font-medium">
+              {item.role}
+            </p>
+            <p className="mt-2 text-gray-600 dark:text-gray-400">
+              {item.description}
+            </p>
+            {item.achievements && (
+              <div className="mt-4 text-sm">
+                <ul className={`list-disc ${ulClass}`}>
+                  {item.achievements.map((achievement, i) => (
+                    <li key={i} className="text-gray-400 dark:text-gray-200">
+                      {achievement}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
+          </div>
+        </div>
+      ) : (
+        <>
+          <div className="absolute -left-4 mt-1">
+            <div className="flex items-center justify-center w-8 h-8 bg-highlight rounded-full text-white">
+              <span>{item.icon}</span>
+            </div>
+          </div>
+          {/* Thumbnail */}
+          <div className="mb-4 overflow-hidden rounded-lg shadow-md transition-all hover:shadow-lg">
+            {item.thumbnailId ? (
+              <div className="aspect-video bg-gray-100 dark:bg-gray-800 overflow-hidden relative">
+                <img
+                  src={`images/${imageName}`}
+                  alt={item.title}
+                  className="w-full h-full object-cover"
+                />
+              </div>
+            ) : (
+              <Skeleton className="aspect-video" />
+            )}
+          </div>
+          <div className="mb-2">
+            <span className="inline-block bg-highlight/10 text-highlight px-3 py-1 rounded-full text-sm font-medium">
+              {item.year}
+            </span>
+          </div>
+          <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-1 flex items-center">
+            {item.title}
+          </h3>
+          <p className="text-gray-600 dark:text-gray-400 font-medium">
+            {item.role}
+          </p>
+          <p className="mt-2 text-gray-600 dark:text-gray-400">
+            {item.description}
+          </p>
+          {item.achievements && (
+            <div className="mt-4 text-sm">
+              <ul className={`list-disc ${ulClass.replace("text-right", "text-gray-700 dark:text-gray-300")}`}>
+                {item.achievements.map((achievement, i) => (
+                  <li key={i} className="text-gray-700 dark:text-gray-300">
+                    {achievement}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+        </>
+      )}
+      {/* Timeline dot for desktop */}
+      {isDesktop && (
+        <div className="absolute left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-5 h-5 bg-highlight rounded-full border-4 border-white dark:border-gray-900 top-6"></div>
+      )}
+    </div>
+  );
+};
+
 const TimelineSection: React.FC = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
-  // Removed activeIndex and setActiveIndex
-  // const [activeIndex, setActiveIndex] = useState<number | null>(null);
-  
+
   const timelineData: TimelineItem[] = [
     {
       year: "2009–2011",
@@ -37,7 +185,7 @@ const TimelineSection: React.FC = () => {
       icon: "⚙️",
       description: "Started as a Venture Capital fund. Silicon Straits Foundry, the product development arm co-founded by Kent, built web, mobile, and hardware products for startups and enterprises in Southeast Asia.",
       achievements: [
-        "Grew team to around 100 people, 65 developers",
+        "Grew team to 100+ full-time staff, 65 developers",
         "Operated from offices in Singapore and Ho Chi Minh City",
         "BOT for regional startups (Parcel Perform, 7-Eleven, Bluebird, MAUA)"
       ],
@@ -119,207 +267,30 @@ const TimelineSection: React.FC = () => {
     };
   }, []);
 
-  const handleItemClick = (index: number) => {
-    setActiveIndex(activeIndex === index ? null : index);
-  };
-
   return (
     <section id="timeline" className="py-20 bg-white dark:bg-gray-900">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <h2 className="text-3xl lg:text-4xl font-bold mb-4 text-center text-gray-900 dark:text-white">
-          Career <span className="text-highlight">Journey</span>
+          Career <span className="text-highlight">in Tech</span>
         </h2>
         <p className="text-xl text-gray-600 dark:text-gray-400 mb-12 text-center max-w-3xl mx-auto">
           Two decades of building, leading, and transforming tech companies
         </p>
-
         <div ref={sectionRef} className="max-w-4xl mx-auto">
           {/* Desktop Timeline */}
           <div className="hidden lg:block">
             <div className="relative">
-              {/* Timeline line */}
               <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-0.5 bg-gray-200 dark:bg-gray-700"></div>
-
               {timelineData.map((item, index) => (
-                <div
-                  key={index}
-                  className={`timeline-entry animate-on-scroll relative mb-20 ${index % 2 === 0 ? "text-right" : "text-left"}`}
-                  // Removed onClick
-                >
-                  <div
-                    className={`flex items-center ${
-                      index % 2 === 0 ? "justify-end" : "justify-start"
-                    }`}
-                  >
-                    <div
-                      className={`w-1/2 px-6 ${
-                        index % 2 === 0 ? "pr-16" : "pl-16"
-                      }`}
-                    >
-                      {/* Thumbnail */}
-                      <div className="mb-4 overflow-hidden rounded-lg shadow-md transition-all hover:shadow-lg">
-                        {item.thumbnailId ? (
-                          <div className="aspect-video bg-gray-100 dark:bg-gray-800 animate-pulse overflow-hidden relative">
-                            <div className="absolute inset-0 flex items-center justify-center text-gray-400 dark:text-gray-600">
-                              {item.icon} {item.title}
-                            </div>
-                            {/* Placeholder for the ken burns effect images */}
-                            <div className="timeline-thumbnail" data-thumbnail-id={item.thumbnailId}>
-                            <img
-                                src={`images/${
-                                  item.thumbnailId === "tgm"
-                                    ? "tgm.jpg"
-                                    : item.thumbnailId === "sss"
-                                    ? "sss_2.jpg"
-                                    : item.thumbnailId === "grab"
-                                    ? "grab_2.jpg"
-                                    : item.thumbnailId === "anatics"
-                                    ? "anatics_1.jpg"
-                                    : item.thumbnailId === "alterno"
-                                    ? "alterno_1.jpg"
-                                    : item.thumbnailId === "alphabits"
-                                    ? "alphabits_1.jpg"
-                                    : ""
-                                }`}
-                                alt={item.title}
-                                className="w-full h-full object-cover"
-                              />
-                            </div>
-                          </div>
-                        ) : (
-                          <Skeleton className="aspect-video" />
-                        )}
-                      </div>
-
-                      <div className="mb-2">
-                        <span className="inline-block bg-highlight/10 text-highlight px-3 py-1 rounded-full text-sm font-medium">
-                          {item.year}
-                        </span>
-                      </div>
-                      <h3 className="flex items-center text-xl font-bold text-gray-900 dark:text-white mb-1">
-                        {index % 2 === 1 && (
-                          <>
-                            <span className="mr-2">{item.icon}</span>
-                            {item.title}
-                          </>
-                        )}
-                        {index % 2 === 0 && (
-                          <>
-                            {item.title}
-                            <span className="ml-2">{item.icon}</span>
-                          </>
-                        )}
-                      </h3>
-                      <p className="text-gray-600 dark:text-gray-400 font-medium">
-                        {item.role}
-                      </p>
-                      <p className="mt-2 text-gray-600 dark:text-gray-400">
-                        {item.description}
-                      </p>
-                      
-                      {/* Always show achievements if present */}
-                      {item.achievements && (
-                        <div className="mt-4 text-sm">
-                          <ul className={`list-disc ${index % 2 === 0 ? "text-right list-inside" : "pl-4"}`}>
-                            {item.achievements.map((achievement, i) => (
-                              <li key={i} className="text-gray-400 dark:text-gray-200">
-                                {achievement}
-                              </li>
-                            ))}
-                          </ul>
-                        </div>
-                      )}
-                    </div>
-                  </div>
-
-                  {/* Timeline dot */}
-                  <div className="absolute left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-5 h-5 bg-highlight rounded-full border-4 border-white dark:border-gray-900 top-6"></div>
-                </div>
+                <TimelineItemCard key={index} item={item} index={index} isDesktop={true} />
               ))}
             </div>
           </div>
-
           {/* Mobile Timeline */}
           <div className="lg:hidden">
             <div className="relative pl-8 border-l-2 border-gray-200 dark:border-gray-700">
               {timelineData.map((item, index) => (
-                <div
-                  key={index}
-                  className="timeline-entry animate-on-scroll timeline-item relative mb-12 pl-8"
-                  // Removed onClick
-                >
-                  <div className="absolute -left-4 mt-1">
-                    <div className="flex items-center justify-center w-8 h-8 bg-highlight rounded-full text-white">
-                      <span>{item.icon}</span>
-                    </div>
-                  </div>
-                  
-                  {/* Thumbnail */}
-                  <div className="mb-4 overflow-hidden rounded-lg shadow-md transition-all hover:shadow-lg">
-                    {item.thumbnailId ? (
-                      <div className="aspect-video bg-gray-100 dark:bg-gray-800 overflow-hidden relative">
-                        <img
-                          src={`images/${
-                            item.thumbnailId === "tgm"
-                              ? "tgm.jpg"
-                              : item.thumbnailId === "sss"
-                              ? "sss_1.jpg"
-                              : item.thumbnailId === "grab"
-                              ? "grab_1.jpg"
-                              : item.thumbnailId === "anatics"
-                              ? "anatics_1.jpg"
-                              : item.thumbnailId === "alterno"
-                              ? "alterno_1.jpg"
-                              : item.thumbnailId === "alphabits"
-                              ? "alphabits_1.jpg"
-                              : ""
-                          }`}
-                          alt={item.title}
-                          className="w-full h-full object-cover"
-                        />
-                        {/* Optionally, overlay icon/title as before */}
-                        <div className="absolute inset-0 flex items-center justify-center text-gray-400 dark:text-gray-600 pointer-events-none">
-                          {item.icon} {item.title}
-                        </div>
-                      </div>
-                    ) : (
-                      <Skeleton className="aspect-video" />
-                    )}
-                  </div>
-                  
-                  <div className="mb-2">
-                    <span className="inline-block bg-highlight/10 text-highlight px-3 py-1 rounded-full text-sm font-medium">
-                      {item.year}
-                    </span>
-                  </div>
-                  
-                  <h3
-                    className="text-xl font-bold text-gray-900 dark:text-white mb-1 flex items-center"
-                  >
-                    {item.title}
-                  </h3>
-                  
-                  <p className="text-gray-600 dark:text-gray-400 font-medium">
-                    {item.role}
-                  </p>
-                  
-                  <p className="mt-2 text-gray-600 dark:text-gray-400">
-                    {item.description}
-                  </p>
-                  
-                  {/* Always show achievements if present */}
-                  {item.achievements && (
-                    <div className="mt-4 text-sm">
-                      <ul className={`list-disc ${index % 2 === 0 ? "text-right list-inside" : "pl-4"}`}>
-                        {item.achievements.map((achievement, i) => (
-                          <li key={i} className="text-gray-700 dark:text-gray-300">
-                            {achievement}
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  )}
-                </div>
+                <TimelineItemCard key={index} item={item} index={index} isDesktop={false} />
               ))}
             </div>
           </div>
