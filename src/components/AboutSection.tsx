@@ -34,11 +34,15 @@ const AboutSection: React.FC = () => {
               </h2>
               
               <p className="text-lg text-gray-700 dark:text-gray-300 mb-6">
-                I'm a serial tech entrepreneur with over 20 years of experience. My core passion has always been coding, and I still find myself doing git push almost every day. Over the years, I've founded more than 15 different startups across various countries, gaining countless lessons from both successes and failures.
+                I'm a serial tech entrepreneur with over 20 years of experience. My core passion has always been coding, and I still find myself doing git push almost every day. I graduated from the National University of Singapore in 2011, and ever since, I've founded more than 15 different startups across various countries, gaining countless lessons from both successes and failures.
+              </p>
+              
+              <p className="text-lg text-gray-700 dark:text-gray-300 mb-6">
+                
               </p>
               
               <p className="text-lg text-gray-700 dark:text-gray-300 mb-8">
-                My background spans software, hardware, and related services. In 2018, I made a significant decision to return to Vietnam, shifting my focus from material pursuits to core values like Communication, Courage, Compassion, and Consistency.
+                My background spans software, hardware, and related services. In 2018, after spending 16 years living and working in Singapore, I made a significant decision to return to Vietnam, shifting my focus from material pursuits to core values like Communication, Courage, Compassion, and Consistency.
               </p>
 
               

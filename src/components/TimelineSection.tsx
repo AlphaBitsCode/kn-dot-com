@@ -17,7 +17,9 @@ const getImageName = (thumbnailId: string | undefined, isDesktop: boolean) => {
   switch (thumbnailId) {
     case "tgm":
       return "tgm.jpg";
-    case "sss":
+    case "anideo":
+      return "anideo.jpg";
+      case "sss":
       return isDesktop ? "sss_2.jpg" : "sss_1.jpg";
     case "grab":
       return isDesktop ? "grab_2.jpg" : "grab_1.jpg";
@@ -171,12 +173,24 @@ const TimelineSection: React.FC = () => {
       title: "TGM",
       role: "Co-founder",
       icon: "🟢",
-      description: "Founded by a group of NUS-Alumni, this company provided motivational training and published self-help books.",
+      description: "Founded by a group of Vietnamese NUS-Alumni, TGM provided motivational training and published best-selling self-help books until today.",
       achievements: [
         "Grew to 100+ full-time staff across three major cities in Vietnam",
         "Spun off into four different companies after 2011"
       ],
       thumbnailId: "tgm"
+    },
+    {
+      year: "2011–2012",
+      title: "Anideo",
+      role: "Co-founder, Mobile Developer",
+      icon: "📱",
+      description: "A mobile development lab co-founded by an ex-Facebook cofounder. This is where I learnt advanced iOS development and Ruby backend development.",
+      achievements: [
+        "Built and launched several mobile apps",
+        "Hands-on experience with advanced iOS and Ruby backend technologies"
+      ],
+      thumbnailId: "anideo"
     },
     {
       year: "2013–2017",
