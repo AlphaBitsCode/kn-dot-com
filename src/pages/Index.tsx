@@ -1,12 +1,34 @@
-// Update this page (the content is just a fallback if you fail to update the page)
 
-const Index = () => {
+import React, { useEffect } from "react";
+import NavBar from "@/components/NavBar";
+import HeroSection from "@/components/HeroSection";
+import AboutSection from "@/components/AboutSection";
+import ServicesSection from "@/components/ServicesSection";
+import TimelineSection from "@/components/TimelineSection";
+import ClientsSection from "@/components/ClientsSection";
+import PhotographySection from "@/components/PhotographySection";
+import ContactSection from "@/components/ContactSection";
+import Footer from "@/components/Footer";
+import useScrollAnimation from "@/hooks/useScrollAnimation";
+
+const Index: React.FC = () => {
+  useScrollAnimation();
+  
+  useEffect(() => {
+    document.title = "Kent Nguyen | Tech Entrepreneur & Fractional CTO";
+  }, []);
+  
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4">Welcome to Your Blank App</h1>
-        <p className="text-xl text-gray-600">Start building your amazing project here!</p>
-      </div>
+    <div className="min-h-screen bg-background text-foreground">
+      <NavBar />
+      <HeroSection />
+      <AboutSection />
+      <ServicesSection />
+      <TimelineSection />
+      <ClientsSection />
+      <PhotographySection />
+      <ContactSection />
+      <Footer />
     </div>
   );
 };
