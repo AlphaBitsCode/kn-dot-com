@@ -1,6 +1,6 @@
 
 import React, { useEffect, useRef } from "react";
-import { Mail, Github, Linkedin, Twitter } from "lucide-react";
+import { Mail, Github, Linkedin } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const ContactSection: React.FC = () => {
@@ -75,17 +75,13 @@ const ContactSection: React.FC = () => {
           </div>
           
           <div className="mt-12 flex justify-center space-x-6">
-            <a href="#" className="text-gray-600 hover:text-highlight dark:text-gray-400 dark:hover:text-highlight transition-colors">
+            <a href="https://github.com/kentnguyen" target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-highlight dark:text-gray-400 dark:hover:text-highlight transition-colors">
               <Github size={24} />
               <span className="sr-only">GitHub</span>
             </a>
-            <a href="#" className="text-gray-600 hover:text-highlight dark:text-gray-400 dark:hover:text-highlight transition-colors">
+            <a href="https://www.linkedin.com/in/nguyendmz/" target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-highlight dark:text-gray-400 dark:hover:text-highlight transition-colors">
               <Linkedin size={24} />
               <span className="sr-only">LinkedIn</span>
-            </a>
-            <a href="#" className="text-gray-600 hover:text-highlight dark:text-gray-400 dark:hover:text-highlight transition-colors">
-              <Twitter size={24} />
-              <span className="sr-only">Twitter</span>
             </a>
           </div>
         </div>

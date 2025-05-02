@@ -6,7 +6,6 @@ import AboutSection from "@/components/AboutSection";
 import ServicesSection from "@/components/ServicesSection";
 import TimelineSection from "@/components/TimelineSection";
 import ClientsSection from "@/components/ClientsSection";
-import PhotographySection from "@/components/PhotographySection";
 import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
 import useScrollAnimation from "@/hooks/useScrollAnimation";
@@ -17,6 +16,16 @@ const Index: React.FC = () => {
   useEffect(() => {
     document.title = "Kent Nguyen | Tech Entrepreneur & Fractional CTO";
   }, []);
+
+  // Add Ken Burns effect thumbnails when actual images will be uploaded
+  useEffect(() => {
+    // This is a placeholder for future ken burns effect implementation
+    // Will be replaced with actual implementation when images are uploaded
+    const thumbnails = document.querySelectorAll('.timeline-thumbnail');
+    if (thumbnails.length > 0) {
+      console.log('Thumbnails ready for Ken Burns effect:', thumbnails.length);
+    }
+  }, []);
   
   return (
     <div className="min-h-screen bg-background text-foreground">
@@ -26,7 +35,6 @@ const Index: React.FC = () => {
       <ServicesSection />
       <TimelineSection />
       <ClientsSection />
-      <PhotographySection />
       <ContactSection />
       <Footer />
     </div>

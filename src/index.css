@@ -139,6 +139,18 @@
     opacity: 1;
     transform: translateY(0);
   }
+  
+  /* Timeline thumbnail with Ken Burns effect placeholder */
+  .timeline-thumbnail {
+    @apply absolute inset-0 w-full h-full;
+    background-size: cover;
+    background-position: center;
+    transition: transform 10s ease;
+  }
+  
+  .timeline-thumbnail:hover {
+    transform: scale(1.1);
+  }
 }
 
 @layer utilities {
@@ -148,6 +160,27 @@
   
   .container-padding {
     @apply px-4 sm:px-6 lg:px-8;
+  }
+  
+  /* Modern box shadow */
+  .shadow-modern {
+    box-shadow: 0 10px 30px -15px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Glass effect */
+  .glass {
+    @apply backdrop-blur-md bg-white/60 dark:bg-gray-900/60;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
+  }
+  
+  /* Card hover effect */
+  .card-hover {
+    @apply transition-transform duration-300 ease-in-out;
+  }
+  
+  .card-hover:hover {
+    transform: translateY(-5px);
   }
 }
 

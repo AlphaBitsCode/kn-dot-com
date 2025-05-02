@@ -1,14 +1,15 @@
 
 import React from "react";
+import { Github, Linkedin, Mail } from "lucide-react";
 
 const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
   
   return (
-    <footer className="py-10 bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-800">
+    <footer className="py-16 bg-white dark:bg-gray-900 border-t border-gray-100 dark:border-gray-800">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col md:flex-row justify-between items-center">
-          <div className="mb-4 md:mb-0">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="mb-8 md:mb-0">
             <span className="text-xl font-heading font-bold text-gray-900 dark:text-white">
               Kent Nguyen
             </span>
@@ -17,8 +18,27 @@ const Footer: React.FC = () => {
             </p>
           </div>
           
-          <div className="text-gray-600 dark:text-gray-400 text-sm">
-            © {currentYear} Kent Nguyen. All rights reserved.
+          <div className="text-center">
+            <h3 className="text-sm font-semibold text-gray-900 dark:text-white tracking-wider uppercase mb-4">
+              Connect
+            </h3>
+            <div className="flex items-center justify-center space-x-6">
+              <a href="https://github.com/kentnguyen" target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-highlight dark:text-gray-400 dark:hover:text-highlight transition-colors">
+                <Github size={20} />
+              </a>
+              <a href="https://www.linkedin.com/in/nguyendmz/" target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-highlight dark:text-gray-400 dark:hover:text-highlight transition-colors">
+                <Linkedin size={20} />
+              </a>
+              <a href="mailto:kent@alphabits.team" className="text-gray-600 hover:text-highlight dark:text-gray-400 dark:hover:text-highlight transition-colors">
+                <Mail size={20} />
+              </a>
+            </div>
+          </div>
+          
+          <div className="text-right">
+            <div className="text-gray-600 dark:text-gray-400 text-sm">
+              © {currentYear} Kent Nguyen. All rights reserved.
+            </div>
           </div>
         </div>
       </div>

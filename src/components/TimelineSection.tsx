@@ -1,5 +1,6 @@
 
 import React, { useEffect, useRef, useState } from "react";
+import { Skeleton } from "@/components/ui/skeleton";
 
 interface TimelineItem {
   year: string;
@@ -8,6 +9,7 @@ interface TimelineItem {
   icon: string;
   description: string;
   achievements?: string[];
+  thumbnailId?: string;
 }
 
 const TimelineSection: React.FC = () => {
@@ -24,7 +26,8 @@ const TimelineSection: React.FC = () => {
       achievements: [
         "Grew to 100+ full-time staff across three major cities in Vietnam",
         "Spun off into four different companies after 2011"
-      ]
+      ],
+      thumbnailId: "tgm"
     },
     {
       year: "2013–2017",
@@ -35,7 +38,8 @@ const TimelineSection: React.FC = () => {
       achievements: [
         "Grew team to around 100 people",
         "Operated from offices in Singapore and Ho Chi Minh City"
-      ]
+      ],
+      thumbnailId: "silicon"
     },
     {
       year: "2017",
@@ -46,7 +50,8 @@ const TimelineSection: React.FC = () => {
       achievements: [
         "Managed the transition of an acquired team",
         "Established internal collaborations"
-      ]
+      ],
+      thumbnailId: "grab"
     },
     {
       year: "2020–2023",
@@ -54,17 +59,19 @@ const TimelineSection: React.FC = () => {
       role: "Co-founder",
       icon: "📊",
       description: "A boutique consulting firm focusing on Data and Business Intelligence, assisting Small and Medium-sized Enterprises (SMEs) with data consolidation and adopting modern BI tools.",
+      thumbnailId: "anatics"
     },
     {
-      year: "2023–Now",
+      year: "2023–2024",
       title: "Alternō",
-      role: "Sand Battery Inventor & CEO",
+      role: "Inventor & Founder",
       icon: "🔥",
       description: "Asia's first company focused on low-cost sand-based zero emission thermal energy storage (Sand Battery).",
       achievements: [
         "Received pre-seed investment in January 2023",
         "Raised a Seed round of $1.5M in April 2024"
-      ]
+      ],
+      thumbnailId: "alterno"
     },
     {
       year: "2023–Now",
@@ -76,7 +83,8 @@ const TimelineSection: React.FC = () => {
         "Business process automation",
         "ERP/CRM integration",
         "Scalable AI agents deployment"
-      ]
+      ],
+      thumbnailId: "alphabits"
     }
   ];
 
@@ -128,7 +136,7 @@ const TimelineSection: React.FC = () => {
               {timelineData.map((item, index) => (
                 <div
                   key={index}
-                  className={`timeline-entry animate-on-scroll relative mb-16 ${index % 2 === 0 ? "text-right" : "text-left"}`}
+                  className={`timeline-entry animate-on-scroll relative mb-20 ${index % 2 === 0 ? "text-right" : "text-left"}`}
                   onClick={() => handleItemClick(index)}
                 >
                   <div
@@ -141,6 +149,21 @@ const TimelineSection: React.FC = () => {
                         index % 2 === 0 ? "pr-16" : "pl-16"
                       }`}
                     >
+                      {/* Thumbnail */}
+                      <div className="mb-4 overflow-hidden rounded-lg shadow-md transition-all hover:shadow-lg">
+                        {item.thumbnailId ? (
+                          <div className="aspect-video bg-gray-100 dark:bg-gray-800 animate-pulse overflow-hidden relative">
+                            <div className="absolute inset-0 flex items-center justify-center text-gray-400 dark:text-gray-600">
+                              {item.icon} {item.title}
+                            </div>
+                            {/* Placeholder for the ken burns effect images */}
+                            <div className="timeline-thumbnail" data-thumbnail-id={item.thumbnailId}></div>
+                          </div>
+                        ) : (
+                          <Skeleton className="aspect-video" />
+                        )}
+                      </div>
+
                       <div className="mb-2">
                         <span className="inline-block bg-highlight/10 text-highlight px-3 py-1 rounded-full text-sm font-medium">
                           {item.year}
@@ -201,6 +224,21 @@ const TimelineSection: React.FC = () => {
                     <div className="flex items-center justify-center w-8 h-8 bg-highlight rounded-full text-white">
                       <span>{item.icon}</span>
                     </div>
+                  </div>
+                  
+                  {/* Thumbnail */}
+                  <div className="mb-4 overflow-hidden rounded-lg shadow-md transition-all hover:shadow-lg">
+                    {item.thumbnailId ? (
+                      <div className="aspect-video bg-gray-100 dark:bg-gray-800 animate-pulse overflow-hidden relative">
+                        <div className="absolute inset-0 flex items-center justify-center text-gray-400 dark:text-gray-600">
+                          {item.icon} {item.title}
+                        </div>
+                        {/* Placeholder for the ken burns effect images */}
+                        <div className="timeline-thumbnail" data-thumbnail-id={item.thumbnailId}></div>
+                      </div>
+                    ) : (
+                      <Skeleton className="aspect-video" />
+                    )}
                   </div>
                   
                   <div className="mb-2">
