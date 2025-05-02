@@ -195,7 +195,7 @@ const TimelineSection: React.FC = () => {
     {
       year: "2013–2017",
       title: "Silicon Straits",
-      role: "CTO",
+      role: "Group CTO & Co-Founder",
       icon: "⚙️",
       description: "Started as a Venture Capital fund. Silicon Straits Foundry, the product development arm co-founded by Kent, built web, mobile, and hardware products for startups and enterprises in Southeast Asia.",
       achievements: [
@@ -245,7 +245,7 @@ const TimelineSection: React.FC = () => {
     {
       year: "2023–Now",
       title: "Alpha Bits",
-      role: "AI Workflow Automation for Businesses",
+      role: "Founder",
       icon: "🤖",
       description: "Positioning as a one-stop technology partner and CTO-as-a-Service, Alpha Bits specialises in AI Workflow Automation and Digital Transformation for SMBs.",
       achievements: [

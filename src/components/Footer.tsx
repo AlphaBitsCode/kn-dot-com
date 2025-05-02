@@ -14,7 +14,7 @@ const Footer: React.FC = () => {
               Kent Nguyen
             </span>
             <p className="text-gray-600 dark:text-gray-400 mt-2">
-              Tech Entrepreneur & Fractional CTO
+              Serial Tech Entrepreneur & Fractional CTO
             </p>
           </div>
           

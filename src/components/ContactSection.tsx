@@ -64,7 +64,7 @@ const ContactSection: React.FC = () => {
               className="border-highlight text-highlight hover:bg-highlight hover:text-white w-full sm:w-auto"
             >
               <a
-                href="#"
+                href="https://cal.com/alphabits/mini"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center"
