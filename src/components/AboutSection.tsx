@@ -42,7 +42,7 @@ const AboutSection: React.FC = () => {
               </p>
               
               <p className="text-lg text-gray-700 dark:text-gray-300 mb-8">
-                My background spans software, hardware, and related services. In 2018, after spending 16 years living and working in Singapore, I made a significant decision to return to Vietnam, shifting my focus from material pursuits to core values like Communication, Courage, Compassion, and Consistency.
+                My background spans software, hardware, and related services. In 2016, after spending 16 years living and working in Singapore, I made a significant decision to return to Vietnam, shifting my focus from material pursuits to core values like Communication, Courage, Compassion, and Consistency.
               </p>
 
               
