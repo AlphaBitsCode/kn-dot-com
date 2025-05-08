@@ -282,7 +282,7 @@ const TimelineSection: React.FC = () => {
         "Promoting accessible and fun food growing experiences"
       ],
       thumbnailId: "alphablock",
-      link: "https://thealphablock.com" // Updated link
+      link: "https://www.thealphablock.com" // Updated link
     }
   ];
 
