@@ -268,7 +268,7 @@ const TimelineSection: React.FC = () => {
         "Scalable AI agents deployment"
       ],
       thumbnailId: "alphabits",
-      link: "https://alphabits.teams" // Updated link
+      link: "https://alphabits.team/" // Updated link
     },
     {
       year: "2025–Now",
