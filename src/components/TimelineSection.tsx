@@ -10,6 +10,7 @@ interface TimelineItem {
   description: string;
   achievements?: string[];
   thumbnailId?: string;
+  link?: string; // Add link property
 }
 
 const getImageName = (thumbnailId: string | undefined, isDesktop: boolean) => {
@@ -97,6 +98,11 @@ const TimelineItemCard: React.FC<TimelineItemCardProps> = ({ item, index, isDesk
             <p className="mt-2 text-gray-600 dark:text-gray-400">
               {item.description}
             </p>
+            {item.link && (
+              <a href={item.link} className="text-blue-500 hover:underline">
+                Learn more
+              </a>
+            )}
             {item.achievements && (
               <div className="mt-4 text-sm">
                 <ul className={`list-disc ${ulClass}`}>
@@ -145,6 +151,11 @@ const TimelineItemCard: React.FC<TimelineItemCardProps> = ({ item, index, isDesk
           <p className="mt-2 text-gray-600 dark:text-gray-400">
             {item.description}
           </p>
+          {item.link && (
+            <a href={item.link} className="text-blue-500 hover:underline">
+              Learn more
+            </a>
+          )}
           {item.achievements && (
             <div className="mt-4 text-sm">
               <ul className={`list-disc ${ulClass.replace("text-right", "text-gray-700 dark:text-gray-300")}`}>
@@ -229,7 +240,8 @@ const TimelineSection: React.FC = () => {
         "Data/BI Consulting for SMEs in Vietnam during COVID",
         "Podcast series on Digital Transformation for businesses",
       ],
-      thumbnailId: "anatics"
+      thumbnailId: "anatics",
+      link: "https://anatics.io" // Updated link
     },
     {
       year: "2023–2024",
@@ -255,7 +267,8 @@ const TimelineSection: React.FC = () => {
         "ERP/CRM integration",
         "Scalable AI agents deployment"
       ],
-      thumbnailId: "alphabits"
+      thumbnailId: "alphabits",
+      link: "https://alphabits.teams" // Updated link
     },
     {
       year: "2025–Now",
@@ -268,7 +281,8 @@ const TimelineSection: React.FC = () => {
         "Integrated sensors, cameras, and automation for interactive learning",
         "Promoting accessible and fun food growing experiences"
       ],
-      thumbnailId: "alphablock" // Add an image if available, e.g. "alphablock"
+      thumbnailId: "alphablock",
+      link: "https://thealphablock.com" // Updated link
     }
   ];
 
