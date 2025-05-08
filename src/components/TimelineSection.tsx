@@ -263,9 +263,10 @@ const TimelineSection: React.FC = () => {
       icon: "🤖",
       description: "Positioning as a one-stop technology partner and CTO-as-a-Service, Alpha Bits specialises in AI Workflow Automation and Digital Transformation for SMBs.",
       achievements: [
-        "Business process automation",
-        "ERP/CRM integration",
-        "Scalable AI agents deployment"
+        "AI Workflow Automation",
+        "Data Platform / BI Dashboards",
+        "IoT Solutions for Smart Farms & Factories",
+        "NodeRED Training Courses",
       ],
       thumbnailId: "alphabits",
       link: "https://alphabits.team/" // Updated link
