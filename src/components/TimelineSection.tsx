@@ -214,7 +214,7 @@ const TimelineSection: React.FC = () => {
       achievements: [
         "Grew team to 100+ full-time staff, 65 developers",
         "Operated from offices in Singapore and Ho Chi Minh City",
-        "BOT for regional startups (Parcel Perform, 7-Eleven, Bluebird, MAUA)"
+        "BOT for regional startups (vPost, Parcel Perform, 7-Eleven, Bluebird, and more)"
       ],
       thumbnailId: "sss"
     },
@@ -231,17 +231,44 @@ const TimelineSection: React.FC = () => {
       thumbnailId: "grab"
     },
     {
+      year: "2018–2021",
+      title: "Viet Capital Asset Management (VCAM)",
+      role: "Venture Partner",
+      icon: "💵",
+      description: "Venture Capital arm of Viet Capital Conglomerate.",
+      achievements: [
+        "Technical Due Diligence of startups",
+        "Pre-deal & Post-deal Technical Support",
+        "Technical Advisory"
+      ],
+      thumbnailId: "grab"
+    },
+    {
       year: "2020–2023",
       title: "Anatics",
       role: "Co-founder",
       icon: "📊",
-      description: "A boutique consulting firm focusing on Data and Business Intelligence, assisting Small and Medium-sized Enterprises (SMEs) with data consolidation and adopting modern BI tools.",
+      description: "A boutique consulting firm focusing on Data and Business Intelligence, assisting Small and Medium-sized Enterprises (SMEs) with data consolidation and adopting modern BI tools. Portfolio incluedes Highlands, Vascara, SieuViet Group, and more.",
       achievements: [
-        "Data/BI Consulting for SMEs in Vietnam during COVID",
+        "Data/BI Consulting for SMEs in Vietnam during pandemic",
+        "Build Data Platform & BI Dashboards for SMEs in Vietnam",
         "Podcast series on Digital Transformation for businesses",
       ],
       thumbnailId: "anatics",
       link: "https://anatics.io" // Updated link
+    },
+    {
+      year: "2020–2022",
+      title: "OP3N LLC (USA)",
+      role: "CTO & Product Lead",
+      icon: "💵",
+      description: "Tailored NFT Platform for Entertainment & Music",
+      achievements: [
+        "NFT Platform Development",
+        "Smart Contract Development",
+        "Built-Operate-Tranfer Model for remote development team (20+), during pandemic",
+      ],
+      thumbnailId: "grab"
     },
     {
       year: "2023–2024",
