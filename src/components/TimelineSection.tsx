@@ -218,8 +218,8 @@ const TimelineSection: React.FC = () => {
       icon: "🧑🏻‍💻",
       description: "Started as a Venture Capital fund. Silicon Straits Foundry, the product development arm co-founded by Kent, built web, mobile, and hardware products for startups and enterprises in Southeast Asia.",
       achievements: [
-        "Grew team to 100+ full-time staff, 65 developers",
-        "Operated from offices in Singapore and Ho Chi Minh City",
+        "After 4 years we had recruited over 300+ full-time staff",
+        "Operated from offices in Block 71 Singapore and Phu My Hung, Ho Chi Minh City, Vietnam",
         "BOT for regional startups (vPost, Parcel Perform, 7-Eleven, Bluebird, and more)"
       ],
       thumbnailId: "sss"
@@ -311,10 +311,11 @@ const TimelineSection: React.FC = () => {
       icon: "🤖",
       description: "Positioning as a one-stop technology partner and CTO-as-a-Service, Alpha Bits specialises in AI Workflow Automation and Digital Transformation for SMBs.",
       achievements: [
-        "AI Workflow Automation",
         "Data Platform / BI Dashboards",
-        "IoT Solutions for Smart Farms & Factories",
-        "NodeRED Training Courses",
+        "AI Workflow Automation",
+        "IoT Solutions for Digital Agriculture - Smart Farms",
+        "Digital Twin & Energy Management solutions for buildings, factories, and homes",
+        "AIoT Training Courses for B2B & B2C",
       ],
       thumbnailId: "alphabits",
       link: "https://alphabits.team/" // Updated link
