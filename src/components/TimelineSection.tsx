@@ -24,12 +24,18 @@ const getImageName = (thumbnailId: string | undefined, isDesktop: boolean) => {
       return isDesktop ? "sss_2.jpg" : "sss_1.jpg";
     case "grab":
       return isDesktop ? "grab_2.jpg" : "grab_1.jpg";
+    case "spartan":
+      return "spartan_pos1.jpg";
     case "anatics":
       return "anatics_1.jpg";
     case "alterno":
       return "alterno_1.jpg";
     case "alphabits":
       return "alphabits_1.jpg";
+    case "op3n":
+      return "op3n.jpg";
+    case "vcam":
+      return "vcam_turkey.jpg";
     case "alphablock":
       return isDesktop ? "alphablock_1.jpg" : "alphablock_2.jpg";
     default:
@@ -207,9 +213,9 @@ const TimelineSection: React.FC = () => {
     },
     {
       year: "2013–2017",
-      title: "Silicon Straits",
-      role: "Group CTO & Co-Founder",
-      icon: "⚙️",
+      title: "The Silicon Straits mafia",
+      role: "Group CTO & Co-Founder & Jack-of-all-Trades",
+      icon: "🧑🏻‍💻",
       description: "Started as a Venture Capital fund. Silicon Straits Foundry, the product development arm co-founded by Kent, built web, mobile, and hardware products for startups and enterprises in Southeast Asia.",
       achievements: [
         "Grew team to 100+ full-time staff, 65 developers",
@@ -219,8 +225,22 @@ const TimelineSection: React.FC = () => {
       thumbnailId: "sss"
     },
     {
+      year: "2016–2018",
+      title: "Spartan Vietnam",
+      role: "Country Manager",
+      icon: "🏷️",
+      description: "Supplier of Android POS equipments for retail shops businesses in Vietnam.",
+      achievements: [
+        "Supplier of 7-Eleven POS equipments",
+        "Import/Export of Android POS equipments, from Taiwan, Singapore",
+        "Distributor of POS accessories (QR Code Scanner, Cash Register, Printer, etc.)",
+        "2nd Level Technical Support team for 7-Eleven POS equipments",
+      ],
+      thumbnailId: "spartan"
+    },
+    {
       year: "2017",
-      title: "Grab",
+      title: "Grab `Taxi`",
       role: "Head of Engineering Vietnam",
       icon: "🚖",
       description: "Led one of Grab's engineering centres, focusing on utility features and internal tools, after acqui-hired by Grab Holdings.",
@@ -230,6 +250,7 @@ const TimelineSection: React.FC = () => {
       ],
       thumbnailId: "grab"
     },
+    
     {
       year: "2018–2021",
       title: "Viet Capital Asset Management (VCAM)",
@@ -239,9 +260,10 @@ const TimelineSection: React.FC = () => {
       achievements: [
         "Technical Due Diligence of startups",
         "Pre-deal & Post-deal Technical Support",
-        "Technical Advisory"
+        "Residence Technical Advisor for startup founders",
+        "Built initial VCAM Fund Management platform (Fund Certificates)"
       ],
-      thumbnailId: "grab"
+      thumbnailId: "vcam"
     },
     {
       year: "2020–2023",
@@ -261,14 +283,13 @@ const TimelineSection: React.FC = () => {
       year: "2020–2022",
       title: "OP3N LLC (USA)",
       role: "CTO & Product Lead",
-      icon: "💵",
+      icon: "🎬",
       description: "Tailored NFT Platform for Entertainment & Music",
       achievements: [
-        "NFT Platform Development",
-        "Smart Contract Development",
+        "NFT Platform & Smart contract Development",
         "Built-Operate-Tranfer Model for remote development team (20+), during pandemic",
       ],
-      thumbnailId: "grab"
+      thumbnailId: "op3n"
     },
     {
       year: "2023–2024",
