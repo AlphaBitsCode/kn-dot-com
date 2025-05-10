@@ -17,7 +17,7 @@ const getImageName = (thumbnailId: string | undefined, isDesktop: boolean) => {
   if (!thumbnailId) return "";
   switch (thumbnailId) {
     case "tgm":
-      return "tgm.jpg";
+      return "tgm_1.jpg";
     case "anideo":
       return "anideo.jpg";
       case "sss":
@@ -36,6 +36,8 @@ const getImageName = (thumbnailId: string | undefined, isDesktop: boolean) => {
       return "op3n.jpg";
     case "vcam":
       return "vcam_turkey.jpg";
+    case "maua":
+      return "maua_skyeye.webp";
     case "alphablock":
       return isDesktop ? "alphablock_1.jpg" : "alphablock_2.jpg";
     default:
@@ -250,7 +252,6 @@ const TimelineSection: React.FC = () => {
       ],
       thumbnailId: "grab"
     },
-    
     {
       year: "2018–2021",
       title: "Viet Capital Asset Management (VCAM)",
@@ -264,6 +265,20 @@ const TimelineSection: React.FC = () => {
         "Built initial VCAM Fund Management platform (Fund Certificates)"
       ],
       thumbnailId: "vcam"
+    },
+    {
+      year: "2018–Now",
+      title: "MAUA.app - SkyEye Pacific (Samoa)",
+      role: "Tech Partner, since 2018",
+      icon: "💵",
+      description: "Samoa's only company focused on providing technology solutions for the local community.",
+      achievements: [
+        "Build and operate MAUA platforms since 2018 as long-term Technical Partner and Advisory",
+        "Ongoing support for eCommerce, POS, CRM, Payment Gateway, On-demand Delivery, Taxi Delivery platforms",
+        "Piloted WhatsApp AI Agents since 2025",
+        "In collaborate with Ministry of Technology, via SkyEye Pacific",
+      ],
+      thumbnailId: "maua"
     },
     {
       year: "2020–2023",
