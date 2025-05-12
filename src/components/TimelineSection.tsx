@@ -317,7 +317,8 @@ const TimelineSection: React.FC = () => {
         "Received pre-seed investment in January 2023",
         "Raised a Seed round of $1.5M in April 2024"
       ],
-      thumbnailId: "alterno"
+      thumbnailId: "alterno",
+      link: "https://blog.kentnguyen.com/the-sand-battery-saga-part-1/" // Updated link
     },
     {
       year: "2023–Now",
