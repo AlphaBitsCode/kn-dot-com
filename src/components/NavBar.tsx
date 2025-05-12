@@ -57,12 +57,6 @@ const NavBar: React.FC = () => {
             >Blog</a>
             <button
               className="text-sm text-gray-700 hover:text-highlight dark:text-gray-300 dark:hover:text-white transition-colors"
-              onClick={() => scrollToSection("about")}
-            >
-              About
-            </button>
-            <button
-              className="text-sm text-gray-700 hover:text-highlight dark:text-gray-300 dark:hover:text-white transition-colors"
               onClick={() => scrollToSection("services")}
             >
               Services
@@ -71,7 +65,7 @@ const NavBar: React.FC = () => {
               className="text-sm text-gray-700 hover:text-highlight dark:text-gray-300 dark:hover:text-white transition-colors"
               onClick={() => scrollToSection("timeline")}
             >
-              Timeline
+              Career
             </button>
             <button
               className="text-sm text-gray-700 hover:text-highlight dark:text-gray-300 dark:hover:text-white transition-colors"
