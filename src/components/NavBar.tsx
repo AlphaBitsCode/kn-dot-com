@@ -50,6 +50,11 @@ const NavBar: React.FC = () => {
 
           {/* Desktop Menu */}
           <div className="hidden md:flex items-center space-x-6">
+            <a
+              href="https://blog.kentnguyen.com/"
+              target="_blank"
+              className="text-sm text-gray-700 hover:text-highlight dark:text-gray-300 dark:hover:text-white transition-colors"
+            >Blog</a>
             <button
               className="text-sm text-gray-700 hover:text-highlight dark:text-gray-300 dark:hover:text-white transition-colors"
               onClick={() => scrollToSection("about")}
