@@ -98,7 +98,7 @@ const NavBar: React.FC = () => {
         {/* Mobile Menu */}
         {menuOpen && (
           <div className="md:hidden bg-white dark:bg-gray-900 shadow-lg rounded-b-lg animate-fade-in">
-            <div className="flex flex-col space-y-4 px-4 py-6">
+            <div className="flex flex-col space-y-4 px-4 py-6 items-center">
               <a
                 href="https://blog.kentnguyen.com/?utm_source=kn&utm_campaign=debug&utm_medium=1"
                 target="_blank"
