@@ -99,6 +99,13 @@ const NavBar: React.FC = () => {
         {menuOpen && (
           <div className="md:hidden bg-white dark:bg-gray-900 shadow-lg rounded-b-lg animate-fade-in">
             <div className="flex flex-col space-y-4 px-4 py-6">
+              <a
+                href="https://blog.kentnguyen.com/?utm_source=kn&utm_campaign=debug&utm_medium=1"
+                target="_blank"
+                className="text-gray-700 hover:text-highlight dark:text-gray-300 dark:hover:text-white transition-colors py-2"
+              >
+                Blog
+              </a>
               <button
                 className="text-gray-700 hover:text-highlight dark:text-gray-300 dark:hover:text-white transition-colors py-2"
                 onClick={() => scrollToSection("services")}
