@@ -23,7 +23,7 @@ const Footer: React.FC = () => {
               Connect
             </h3>
             <div className="flex items-center justify-center space-x-6">
-              <a href="https://yourblog.com" target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-highlight dark:text-gray-400 dark:hover:text-highlight transition-colors">
+              <a href="https://blog.kentnguyen.com/?utm_source=kn&utm_campaign=debug&utm_medium=1" target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-highlight dark:text-gray-400 dark:hover:text-highlight transition-colors">
                 Blog
               </a>
               <a href="https://github.com/kentnguyen" target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-highlight dark:text-gray-400 dark:hover:text-highlight transition-colors">
