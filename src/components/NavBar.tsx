@@ -101,12 +101,6 @@ const NavBar: React.FC = () => {
             <div className="flex flex-col space-y-4 px-4 py-6">
               <button
                 className="text-gray-700 hover:text-highlight dark:text-gray-300 dark:hover:text-white transition-colors py-2"
-                onClick={() => scrollToSection("about")}
-              >
-                About
-              </button>
-              <button
-                className="text-gray-700 hover:text-highlight dark:text-gray-300 dark:hover:text-white transition-colors py-2"
                 onClick={() => scrollToSection("services")}
               >
                 Services
@@ -115,19 +109,13 @@ const NavBar: React.FC = () => {
                 className="text-gray-700 hover:text-highlight dark:text-gray-300 dark:hover:text-white transition-colors py-2"
                 onClick={() => scrollToSection("timeline")}
               >
-                Timeline
+                Career
               </button>
               <button
                 className="text-gray-700 hover:text-highlight dark:text-gray-300 dark:hover:text-white transition-colors py-2"
                 onClick={() => scrollToSection("clients")}
               >
                 Clients
-              </button>
-              <button
-                className="text-gray-700 hover:text-highlight dark:text-gray-300 dark:hover:text-white transition-colors py-2"
-                onClick={() => scrollToSection("photography")}
-              >
-                Photography
               </button>
               <Button 
                 variant="default" 
