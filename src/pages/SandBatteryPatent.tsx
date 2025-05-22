@@ -44,7 +44,7 @@ const SandBatteryPatent: React.FC = () => {
               <li><strong>Patent Number:</strong> US 12,130,086 B1</li>
               <li><strong>Issue Date:</strong> October 29, 2024</li>
               <li><strong>Assignee:</strong> Alterno Pte. Ltd., Singapore</li>
-              <li><strong>Inventors:</strong> Nam Quoc Nguyen et al.</li>
+              <li><strong>Inventors:</strong> Nguyen et al.</li>
             </ul>
             
             <p className="mb-4">
@@ -63,7 +63,7 @@ const SandBatteryPatent: React.FC = () => {
               space heating, and water heating. Its use of abundant, low-cost materials like sand is also highlighted.
             </p>
           </div>
-          
+
           <div className="mt-8 text-center">
             <Button 
               size="lg" 
@@ -75,7 +75,7 @@ const SandBatteryPatent: React.FC = () => {
                 className="flex items-center"
               >
                 <FileDown className="mr-2 h-5 w-5" /> 
-                Download Patent PDF
+                Download USPTO.12-130086-B1.pdf
               </a>
             </Button>
           </div>
@@ -84,6 +84,17 @@ const SandBatteryPatent: React.FC = () => {
             For comprehensive information on the design, components, operation, and various 
             potential applications described, please access the full patent document.
           </p>
+
+          <hr className="mt-6 mb6" />
+
+          <h2 className="text-xl text-highlight font-medium mt-6 mb-6">
+            Sand Battery Saga - Stories by Kent Nguyen
+          </h2>
+
+          <p className="text-sm text-gray-500 dark:text-gray-400 mt-6 text-center">
+            <img src="/images/sand_battery_uspto.jpg" />
+          </p>
+
         </div>
       </div>
     </div>
