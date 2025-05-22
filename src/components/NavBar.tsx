@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from "react";
 import { Menu } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
 
 const NavBar: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -43,9 +44,9 @@ const NavBar: React.FC = () => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 md:h-20">
           <div className="flex items-center">
-            <span className="text-xl font-heading font-bold text-gray-900 dark:text-white">
+            <Link to="/" className="text-xl font-heading font-bold text-gray-900 dark:text-white">
               Kent Nguyen
-            </span>
+            </Link>
           </div>
 
           {/* Desktop Menu */}
@@ -54,7 +55,15 @@ const NavBar: React.FC = () => {
               href="https://blog.kentnguyen.com/"
               target="_blank"
               className="text-sm text-gray-700 hover:text-highlight dark:text-gray-300 dark:hover:text-white transition-colors"
-            >Blog</a>
+            >
+              Blog
+            </a>
+            <Link
+              to="/sand-battery-patent-download"
+              className="text-sm text-gray-700 hover:text-highlight dark:text-gray-300 dark:hover:text-white transition-colors"
+            >
+              Patent
+            </Link>
             <button
               className="text-sm text-gray-700 hover:text-highlight dark:text-gray-300 dark:hover:text-white transition-colors"
               onClick={() => scrollToSection("services")}
@@ -106,6 +115,13 @@ const NavBar: React.FC = () => {
               >
                 Blog
               </a>
+              <Link
+                to="/sand-battery-patent-download"
+                className="text-gray-700 hover:text-highlight dark:text-gray-300 dark:hover:text-white transition-colors py-2"
+                onClick={() => setMenuOpen(false)}
+              >
+                Patent
+              </Link>
               <button
                 className="text-gray-700 hover:text-highlight dark:text-gray-300 dark:hover:text-white transition-colors py-2"
                 onClick={() => scrollToSection("services")}
