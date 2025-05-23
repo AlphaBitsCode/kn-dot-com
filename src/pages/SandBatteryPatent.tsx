@@ -75,7 +75,7 @@ const SandBatteryPatent: React.FC = () => {
                 className="flex items-center"
               >
                 <FileDown className="mr-2 h-5 w-5" /> 
-                Download USPTO.12-130086-B1.pdf
+                Download Full Document (PDF)
               </a>
             </Button>
           </div>
@@ -92,7 +92,13 @@ const SandBatteryPatent: React.FC = () => {
           </h2>
 
           <p className="text-sm text-gray-500 dark:text-gray-400 mt-6 text-center">
-            <img src="/images/sand_battery_uspto.jpg" />
+            <a 
+              href="https://blog.kentnguyen.com/tag/sandbattery/?utm_source=web&utm_campaign=uspto&utm_medium=7104"
+              target="_blank"
+              className="flex items-center"
+              >
+                Read full story
+            </a>
           </p>
 
         </div>
