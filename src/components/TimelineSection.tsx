@@ -20,8 +20,8 @@ const getImageName = (thumbnailId: string | undefined, isDesktop: boolean) => {
       return "tgm_1.jpg";
     case "anideo":
       return "anideo.jpg";
-      case "sss":
-      return isDesktop ? "sss_2.jpg" : "sss_1.jpg";
+    case "sss":
+      return isDesktop ? "sss_3.jpg" : "sss_3.jpg";
     case "grab":
       return isDesktop ? "grab_2.jpg" : "grab_1.jpg";
     case "spartan":
