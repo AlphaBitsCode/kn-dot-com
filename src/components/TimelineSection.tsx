@@ -38,6 +38,8 @@ const getImageName = (thumbnailId: string | undefined, isDesktop: boolean) => {
       return "vcam_turkey.jpg";
     case "maua":
       return "maua_skyeye.webp";
+    case "thermion":
+      return "thermion_1.jpg";
     case "alphablock":
       return isDesktop ? "alphablock_1.jpg" : "alphablock_2.jpg";
     default:
@@ -335,6 +337,20 @@ const TimelineSection: React.FC = () => {
       ],
       thumbnailId: "alphabits",
       link: "https://alphabits.team/" // Updated link
+    },
+    {
+      year: "Nov 2024 – Now",
+      title: "Thermion Energy",
+      role: "Founder/Inventor",
+      icon: "🧊",
+      description: "We offer Off-grid Zero-Emission Heating & Cooling Solutions to homes and businesses.",
+      achievements: [
+        "I.C.E Battery Prototype #0 (consumer) & #1 (industrial) Jan 2025.",
+        "Call for Pre-seed investment in Q2 2025",
+        "Commercial Pilot demo scheduled for July 2025 @ Bien Hoa city",
+      ],
+      thumbnailId: "thermion",
+      link: "https://thermion.energy/?utm_source=knprofile&utm_campaign=may25" // Updated link
     },
     {
       year: "2025–Now",
