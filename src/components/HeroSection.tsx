@@ -36,7 +36,7 @@ const HeroSection: React.FC = () => {
               Hi, I'm Kent.
               <br />
               <span className="text-highlight">
-                I build startups, systems, and AI Agents.
+                I build Startups, Sand Battery, ICE Battery, and also AI Agents.
               </span>
             </h1>
             
