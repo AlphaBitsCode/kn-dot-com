@@ -98,6 +98,7 @@ const SandBatteryPatent: React.FC = () => {
               className="flex items-center"
               >
               <img src="/images/sand_battery_uspto.jpg" />
+              <br />
               Read full story
             </a>
           </p>
