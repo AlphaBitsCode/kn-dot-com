@@ -62,8 +62,8 @@ export default {
 				sm: 'calc(var(--radius) - 4px)'
 			},
 			fontFamily: {
-				sans: ["Inter var", "Inter", ...fontFamily.sans],
-				heading: ["Manrope", ...fontFamily.sans],
+				sans: ["Lato", ...fontFamily.sans],
+				heading: ["Lexend", ...fontFamily.sans],
 			},
 			keyframes: {
 				"accordion-down": {
