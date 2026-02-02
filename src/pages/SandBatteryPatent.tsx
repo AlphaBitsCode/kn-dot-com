@@ -40,19 +40,17 @@ const SandBatteryPatent: React.FC = () => {
 
         {/* Understand Sand Battery teaser */}
         <div className="border-l-2 border-gray-300 pl-6 mb-8">
-          <a
-            href="https://blog.kentnguyen.com/tag/sandbattery/?utm_source=web&utm_campaign=uspto&utm_medium=7104"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="group flex items-center gap-6"
-          >
+          <div className="flex items-center gap-6">
             <div className="w-20 h-20 flex-shrink-0">
               <SandBatteryIcon />
             </div>
-            <span className="font-heading text-base font-semibold text-gray-900 underline group-hover:text-gray-700 transition-colors">
-              Understand Sand Battery
-            </span>
-          </a>
+            <div>
+              <span className="font-heading text-base font-semibold text-gray-900">
+                Understand Sand Battery
+              </span>
+              <span className="ml-2 text-sm text-gray-500">Coming soon</span>
+            </div>
+          </div>
         </div>
 
         <div className="border-l-2 border-gray-300 pl-6 mb-8">
