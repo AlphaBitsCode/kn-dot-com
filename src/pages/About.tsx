@@ -42,7 +42,9 @@ const About: React.FC = () => {
 
         <div className="space-y-6">
           <div className="border-l-2 border-gray-300 pl-6">
-            <h3 className="font-heading text-base font-semibold text-gray-900 mb-1">CEO, Alpha Bits Technology</h3>
+            <h3 className="font-heading text-base font-semibold text-gray-900 mb-1">
+              CEO, <a href="https://alphabits.team?utm_source=kentnguyen&utm_medium=website&utm_content=about_page&utm_campaign=personal_portfolio" target="_blank" rel="noopener noreferrer" className="text-gray-900 underline hover:text-gray-700 transition-colors">Alpha Bits Technology</a>
+            </h3>
             <p className="text-gray-600 text-sm">Built ERPs Teams, Blockchain platforms, Digital Transformation projects, Data/BI dashboards...</p>
           </div>
 
