@@ -34,7 +34,7 @@ const About: React.FC = () => {
 
           <div className="border-l-2 border-gray-300 pl-6">
             <h2 className="font-heading text-lg font-semibold text-gray-900 mb-1">USPTO Patent-author, 2024</h2>
-            <p className="text-gray-600">on Thermal Energy Storage Solution 12-130086-B1.</p>
+            <p className="text-gray-600">on Thermal Energy Storage Solution <a href="/sand-battery-patent-download" className="underline hover:text-gray-700 transition-colors">12-130086-B1</a>.</p>
           </div>
         </div>
 
