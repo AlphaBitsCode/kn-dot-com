@@ -1,6 +1,5 @@
 
 import React, { useEffect, useState } from "react";
-import NavBar from "@/components/NavBar";
 import Footer from "@/components/Footer";
 
 const KentNguyenContact: React.FC = () => {
@@ -44,7 +43,6 @@ const KentNguyenContact: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-background text-foreground">
-      <NavBar />
       <main className="container mx-auto px-4 sm:px-6 lg:px-8 py-20">
         <div className="max-w-4xl mx-auto">
           <h1
