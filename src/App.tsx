@@ -7,6 +7,7 @@ import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import About from "./pages/About";
 import NotFound from "./pages/NotFound";
 import SandBatteryPatent from "./pages/SandBatteryPatent";
+import KentNguyenContact from "./pages/KentNguyenContact";
 
 const queryClient = new QueryClient();
 
@@ -19,7 +20,7 @@ const App = () => (
         <Routes>
           <Route path="/" element={<About />} />
           <Route path="/sand-battery-patent-download" element={<SandBatteryPatent />} />
-          <Route path="/kent-nguyen-contact/" element={<Navigate to="/" />} />
+          <Route path="/kent-nguyen-contact/" element={<KentNguyenContact />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
