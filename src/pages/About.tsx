@@ -1,6 +1,5 @@
 
 import React, { useEffect } from "react";
-import NavBar from "@/components/NavBar";
 import Footer from "@/components/Footer";
 
 const About: React.FC = () => {
@@ -10,7 +9,6 @@ const About: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-background text-foreground">
-      <NavBar />
       <main className="container mx-auto px-4 sm:px-6 lg:px-8 py-20">
         <div className="max-w-4xl mx-auto">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-8 text-gray-900 dark:text-white">
