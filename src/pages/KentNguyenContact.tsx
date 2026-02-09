@@ -69,6 +69,16 @@ const KentNguyenContact: React.FC = () => {
             </h2>
             <p className="text-xl text-gray-600 dark:text-gray-400 mb-2">
               <a
+                href="https://alphabits.team/?utm_source=kentnguyen&utm_medium=website&utm_content=contact_page&utm_campaign=personal_portfolio"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-highlight hover:underline"
+              >
+                Alpha Bits
+              </a>
+            </p>
+            <p className="text-xl text-gray-600 dark:text-gray-400 mb-2">
+              <a
                 href="https://blog.kentnguyen.com/"
                 target="_blank"
                 rel="noopener noreferrer"

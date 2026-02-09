@@ -40,7 +40,7 @@ const Footer: React.FC = () => {
           
           <div className="text-right">
             <div className="text-gray-600 dark:text-gray-400 text-sm">
-              © {currentYear} Kent Nguyen. All rights reserved.
+              © 2026 Year of Reckoning
             </div>
           </div>
         </div>
