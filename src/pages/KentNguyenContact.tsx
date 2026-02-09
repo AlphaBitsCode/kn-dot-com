@@ -36,9 +36,8 @@ const KentNguyenContact: React.FC = () => {
 
   const connectItems = [
     { name: "Alpha Bits", href: "https://alphabits.team/?utm_source=kentnguyen&utm_medium=website&utm_content=contact_page&utm_campaign=personal_portfolio", delay: 300 },
-    { name: "Blog", href: "https://blog.kentnguyen.com/", delay: 350 },
-    { name: "LinkedIn", href: "https://www.linkedin.com/in/konductor/", delay: 400 },
-    { name: "GitHub", href: "https://github.com/kentnguyen", delay: 450 },
+    { name: "LinkedIn", href: "https://www.linkedin.com/in/konductor/", delay: 350 },
+    { name: "GitHub", href: "https://github.com/kentnguyen", delay: 400 },
   ];
 
   return (
