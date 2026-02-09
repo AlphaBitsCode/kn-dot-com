@@ -1,5 +1,7 @@
 
 import React, { useEffect } from "react";
+import NavBar from "@/components/NavBar";
+import Footer from "@/components/Footer";
 
 const About: React.FC = () => {
   useEffect(() => {
@@ -7,56 +9,94 @@ const About: React.FC = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-gray-50 text-gray-900 py-16 px-4">
-      <div className="max-w-2xl mx-auto">
-        <h1 className="font-heading text-4xl md:text-5xl font-bold mb-12 text-gray-900">Kent Nguyen</h1>
+    <div className="min-h-screen bg-background text-foreground">
+      <NavBar />
+      <main className="container mx-auto px-4 sm:px-6 lg:px-8 py-20">
+        <div className="max-w-4xl mx-auto">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-8 text-gray-900 dark:text-white">
+            Kent Nguyen
+          </h1>
 
-        <div className="space-y-8">
-          <div className="border-l-2 border-gray-300 pl-6">
-            <h2 className="font-heading text-lg font-semibold text-gray-900 mb-1">Serial Tech Entrepreneur</h2>
-            <p className="text-gray-600">Co-Founded 10+ tech startups in S.E.A since 2009.</p>
-          </div>
+          <section className="mb-12">
+            <h2 className="text-2xl md:text-3xl font-semibold mb-4 text-gray-800 dark:text-gray-200">
+              Serial Tech Entrepreneur
+            </h2>
+            <p className="text-xl text-gray-600 dark:text-gray-400">
+              Co-Founded 10+ tech startups in S.E.A since 2009.
+            </p>
+          </section>
 
-          <div className="border-l-2 border-gray-300 pl-6">
-            <h2 className="font-heading text-lg font-semibold text-gray-900 mb-1">Tech Advisor, Venture Partner</h2>
-            <p className="text-gray-600">Viet Capital Venture, 2018-2020.</p>
-          </div>
+          <section className="mb-12">
+            <h2 className="text-2xl md:text-3xl font-semibold mb-4 text-gray-800 dark:text-gray-200">
+              Tech Advisor, Venture Partner
+            </h2>
+            <p className="text-xl text-gray-600 dark:text-gray-400">
+              Viet Capital Venture, 2018-2020.
+            </p>
+          </section>
 
-          <div className="border-l-2 border-gray-300 pl-6">
-            <h2 className="font-heading text-lg font-semibold text-gray-900 mb-1">Head of Engineering, Grab Vietnam, 2017</h2>
-            <p className="text-gray-600">Undisclosed Acqui-hire deal by Grab.</p>
-          </div>
+          <section className="mb-12">
+            <h2 className="text-2xl md:text-3xl font-semibold mb-4 text-gray-800 dark:text-gray-200">
+              Head of Engineering, Grab Vietnam, 2017
+            </h2>
+            <p className="text-xl text-gray-600 dark:text-gray-400">
+              Undisclosed Acqui-hire deal by Grab.
+            </p>
+          </section>
 
-          <div className="border-l-2 border-gray-300 pl-6">
-            <h2 className="font-heading text-lg font-semibold text-gray-900 mb-1">Technology Consultant & Solution Architect</h2>
-            <p className="text-gray-600">Led several ERP teams of 7-Eleven VN, BlueBird Taxi ID, vPost SG, 2013-2016.</p>
-          </div>
+          <section className="mb-12">
+            <h2 className="text-2xl md:text-3xl font-semibold mb-4 text-gray-800 dark:text-gray-200">
+              Technology Consultant & Solution Architect
+            </h2>
+            <p className="text-xl text-gray-600 dark:text-gray-400">
+              Led several ERP teams of 7-Eleven VN, BlueBird Taxi ID, vPost SG, 2013-2016.
+            </p>
+          </section>
 
-          <div className="border-l-2 border-gray-300 pl-6">
-            <h2 className="font-heading text-lg font-semibold text-gray-900 mb-1">USPTO Patent-author, 2024</h2>
-            <p className="text-gray-600">on Thermal Energy Storage Solution <a href="/sand-battery-patent-download" className="underline hover:text-gray-700 transition-colors">12-130086-B1</a>.</p>
-          </div>
+          <section className="mb-12">
+            <h2 className="text-2xl md:text-3xl font-semibold mb-4 text-gray-800 dark:text-gray-200">
+              USPTO Patent-author, 2024
+            </h2>
+            <p className="text-xl text-gray-600 dark:text-gray-400">
+              on Thermal Energy Storage Solution{" "}
+              <a
+                href="/sand-battery-patent-download"
+                className="text-highlight hover:underline"
+              >
+                12-130086-B1
+              </a>
+              .
+            </p>
+          </section>
+
+          <section>
+            <h2 className="text-2xl md:text-3xl font-semibold mb-4 text-gray-800 dark:text-gray-200">
+              What I do-ing
+            </h2>
+            <p className="text-xl text-gray-600 dark:text-gray-400 mb-2">
+              CEO,{" "}
+              <a
+                href="https://alphabits.team/?utm_source=kentnguyen&utm_medium=website&utm_content=about_page&utm_campaign=personal_portfolio"
+                className="text-highlight hover:underline"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Alpha Bits Technology
+              </a>
+            </p>
+            <p className="text-xl text-gray-600 dark:text-gray-400 mb-2">
+              Built ERPs Teams, Blockchain platforms, Digital Transformation projects, Data/BI dashboards...
+            </p>
+            <p className="text-xl text-gray-600 dark:text-gray-400 mb-2">
+              Working on AI Edu IoT projects.
+            </p>
+            <p className="text-xl text-gray-600 dark:text-gray-400">
+              Building AI Agents and Enterprise AI workshops.
+            </p>
+          </section>
         </div>
-
-        <h2 className="font-heading text-2xl font-bold mt-16 mb-8 text-gray-900">What I do-ing</h2>
-
-        <div className="space-y-6">
-          <div className="border-l-2 border-gray-300 pl-6">
-            <h3 className="font-heading text-base font-semibold text-gray-900 mb-1">
-              CEO, <a href="https://alphabits.team?utm_source=kentnguyen&utm_medium=website&utm_content=about_page&utm_campaign=personal_portfolio" target="_blank" rel="noopener noreferrer" className="text-gray-900 underline hover:text-gray-700 transition-colors">Alpha Bits Technology</a>
-            </h3>
-            <p className="text-gray-600 text-sm">Built ERPs Teams, Blockchain platforms, Digital Transformation projects, Data/BI dashboards...</p>
-          </div>
-
-          <div className="border-l-2 border-gray-300 pl-6">
-            <p className="text-gray-600">Working on AI Edu IoT projects.</p>
-          </div>
-
-          <div className="border-l-2 border-gray-300 pl-6">
-            <p className="text-gray-600">Building AI Agents and Enterprise AI workshops.</p>
-          </div>
-        </div>
-      </div>
+      </main>
+      <Footer />
     </div>
   );
 };

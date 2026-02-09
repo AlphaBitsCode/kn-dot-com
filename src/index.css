@@ -92,10 +92,16 @@
 
   body {
     @apply bg-background text-foreground;
+    font-family: 'Lato', sans-serif;
     font-feature-settings: "rlig" 1, "calt" 1;
   }
 
-  h1, h2, h3, h4, h5, h6 {
+  h1 {
+    font-family: 'Lexend', sans-serif;
+    @apply font-semibold tracking-tight;
+  }
+
+  h2, h3, h4, h5, h6 {
     @apply font-heading font-semibold tracking-tight;
   }
 
