@@ -91,7 +91,7 @@ const KentNguyenContact: React.FC = () => {
               </a>
               <span className="text-gray-400">•</span>
               <a
-                href="https://www.linkedin.com/in/kentnguyen/"
+                href="https://www.linkedin.com/in/konductor/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-highlight hover:underline"
