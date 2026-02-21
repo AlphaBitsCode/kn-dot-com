@@ -133,6 +133,28 @@ const SandBatteryExperiment: React.FC = () => {
                     </p>
                 </div>
 
+                {/* Video Introduction Section */}
+                <div className="space-y-6">
+                    <div>
+                        <h2 className="text-2xl font-bold font-heading border-b border-gray-200 pb-2">What is Sand Battery?</h2>
+                        <p className="text-gray-500 mt-2 text-sm">A brief introduction to the technology behind our thermal energy storage system.</p>
+                    </div>
+
+                    <div className="w-full aspect-video bg-gray-900 rounded-xl shadow-lg ring-1 ring-gray-900/5 overflow-hidden flex items-center justify-center">
+                        <iframe
+                            width="100%"
+                            height="100%"
+                            src="https://www.youtube.com/embed/kIrX5JcxeLE?autoplay=1"
+                            title="What is Sand Battery?"
+                            frameBorder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            referrerPolicy="strict-origin-when-cross-origin"
+                            allowFullScreen
+                            className="w-full h-full object-cover"
+                        ></iframe>
+                    </div>
+                </div>
+
                 {/* Canvas Section */}
                 <div className="space-y-6">
                     <div>
