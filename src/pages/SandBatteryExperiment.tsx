@@ -136,14 +136,13 @@ const SandBatteryExperiment: React.FC = () => {
         { id: 10, src: "/images/sb/2023-09-08-12-36-03-104.jpg", date: "Sep 8, 2023" },
         { id: 11, src: "/images/sb/IMG_20231127_164139.jpg", date: "Nov 27, 2023" },
         { id: 12, src: "/images/sb/2024-02-22 15.01.38.jpg", date: "Feb 22, 2024" },
-        { id: 13, src: "/images/sb/IMG_20240426_103006.jpg", date: "Apr 26, 2024" },
-        { id: 14, src: "/images/sb/IMG_20240516_080317.jpg", date: "May 16, 2024" },
-        { id: 15, src: "/images/sb/IMG_20240529_092152.jpg", date: "May 29, 2024" },
-        { id: 16, src: "/images/sb/IMG_20240627_142913.jpg", date: "Jun 27, 2024" },
-        { id: 17, src: "/images/sb/img_4066 (1).jpg", date: "Jul 4, 2024" },
-        { id: 18, src: "/images/sb/z5101650071413_a18d7861f8387178ca615a5bff70d122.jpg", date: "Jul 15, 2024" },
-        { id: 19, src: "/images/sb/baotuoitre_pincat.jpg", date: "Press Day" },
-        { id: 20, src: "/images/sb/IMG_20250521_162020.jpg", date: "May 21, 2025" }
+        { id: 13, src: "/images/sb/IMG_20240516_080317.jpg", date: "May 16, 2024" },
+        { id: 14, src: "/images/sb/IMG_20240529_092152.jpg", date: "May 29, 2024" },
+        { id: 15, src: "/images/sb/IMG_20240627_142913.jpg", date: "Jun 27, 2024" },
+        { id: 16, src: "/images/sb/img_4066 (1).jpg", date: "Jul 4, 2024" },
+        { id: 17, src: "/images/sb/z5101650071413_a18d7861f8387178ca615a5bff70d122.jpg", date: "Jul 15, 2024" },
+        { id: 18, src: "/images/sb/baotuoitre_pincat.jpg", date: "Press Day" },
+        { id: 19, src: "/images/sb/IMG_20250521_162020.jpg", date: "May 21, 2025" }
     ];
 
     return (
