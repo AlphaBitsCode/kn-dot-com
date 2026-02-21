@@ -5,6 +5,21 @@ import Footer from "@/components/Footer";
 const About: React.FC = () => {
   useEffect(() => {
     document.title = "About | Kent Nguyen";
+
+    const metaDesc = document.createElement("meta");
+    metaDesc.name = "description";
+    metaDesc.content = "Kent Nguyen: Serial Tech Entrepreneur, Tech Advisor, and Solution Architect. Co-founder of Alpha Bits and Inventor of the Alterno Sand Battery.";
+    document.head.appendChild(metaDesc);
+
+    const ogTitle = document.createElement("meta");
+    ogTitle.setAttribute("property", "og:title");
+    ogTitle.content = "About | Kent Nguyen";
+    document.head.appendChild(ogTitle);
+
+    return () => {
+      document.head.removeChild(metaDesc);
+      document.head.removeChild(ogTitle);
+    };
   }, []);
 
   return (

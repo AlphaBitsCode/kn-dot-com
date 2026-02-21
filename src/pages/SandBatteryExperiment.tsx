@@ -93,6 +93,33 @@ const SandBatteryExperiment: React.FC = () => {
 
     useEffect(() => {
         document.title = "Interactive Sand Battery | Kent Nguyen";
+
+        const metaDesc = document.createElement("meta");
+        metaDesc.name = "description";
+        metaDesc.content = "Interactive thermodynamic simulation of the patented Sand Battery by Alterno. Watch sand heat up to 600°C and understand the thermal storage system.";
+        document.head.appendChild(metaDesc);
+
+        const metaKeywords = document.createElement("meta");
+        metaKeywords.name = "keywords";
+        metaKeywords.content = "sand battery, thermal energy storage, Alterno, Kent Nguyen, interactive simulation, patent 12130086";
+        document.head.appendChild(metaKeywords);
+
+        const ogTitle = document.createElement("meta");
+        ogTitle.setAttribute("property", "og:title");
+        ogTitle.content = "Interactive Sand Battery Simulation";
+        document.head.appendChild(ogTitle);
+
+        const ogDesc = document.createElement("meta");
+        ogDesc.setAttribute("property", "og:description");
+        ogDesc.content = "Interactive thermodynamic simulation of the patented Sand Battery by Alterno.";
+        document.head.appendChild(ogDesc);
+
+        return () => {
+            document.head.removeChild(metaDesc);
+            document.head.removeChild(metaKeywords);
+            document.head.removeChild(ogTitle);
+            document.head.removeChild(ogDesc);
+        };
     }, []);
 
     // Real project images from /public/images/sb
@@ -140,7 +167,7 @@ const SandBatteryExperiment: React.FC = () => {
                         <p className="text-gray-500 mt-2 text-sm">A brief introduction to the technology behind our thermal energy storage system.</p>
                     </div>
 
-                    <div className="w-full aspect-video bg-gray-900 rounded-xl shadow-lg ring-1 ring-gray-900/5 overflow-hidden flex items-center justify-center">
+                    <div className="w-full aspect-video bg-gray-900 rounded-sm border border-gray-900/10 overflow-hidden flex items-center justify-center">
                         <iframe
                             width="100%"
                             height="100%"
@@ -162,7 +189,7 @@ const SandBatteryExperiment: React.FC = () => {
                         <p className="text-gray-500 mt-2 text-sm">Interactive cross-section visualization of the sand battery's thermal behavior.</p>
                     </div>
 
-                    <div className="w-full aspect-video bg-white rounded-xl shadow-lg overflow-hidden border border-gray-200">
+                    <div className="w-full aspect-video bg-white rounded-sm overflow-hidden border border-gray-200">
                         <canvas
                             ref={canvasRef}
                             width={1920}
@@ -172,13 +199,13 @@ const SandBatteryExperiment: React.FC = () => {
                     </div>
 
                     {/* Control Panel */}
-                    <div className="bg-white rounded-xl shadow-md p-6 border border-gray-200">
+                    <div className="bg-white rounded-sm p-6 border border-gray-200">
                         <div className="flex flex-wrap items-center justify-center gap-4">
                             <button
                                 onClick={simulation.actions.startCharging}
-                                className={`flex items-center gap-3 px-6 py-4 rounded-xl font-bold text-lg transition-all duration-300 ${simulation.state.operationalState === 'CHARGING'
-                                    ? 'bg-green-500 text-white shadow-lg shadow-green-500/30 scale-105'
-                                    : 'bg-amber-500 text-white hover:bg-amber-600 hover:shadow-lg hover:shadow-amber-500/30 hover:-translate-y-0.5'
+                                className={`flex items-center gap-3 px-6 py-4 rounded-sm font-bold text-lg transition-colors duration-200 ${simulation.state.operationalState === 'CHARGING'
+                                    ? 'bg-green-500 text-white'
+                                    : 'bg-amber-500 text-white hover:bg-amber-600'
                                     }`}
                             >
                                 <Zap size={24} className={simulation.state.operationalState === 'CHARGING' ? 'animate-pulse' : ''} />
@@ -188,11 +215,11 @@ const SandBatteryExperiment: React.FC = () => {
                             <button
                                 onClick={simulation.actions.startDischarging}
                                 disabled={simulation.state.currentTemperature < 50}
-                                className={`flex items-center gap-3 px-6 py-4 rounded-xl font-bold text-lg transition-all duration-300 ${simulation.state.operationalState === 'DISCHARGING'
-                                    ? 'bg-green-500 text-white shadow-lg shadow-green-500/30 scale-105'
+                                className={`flex items-center gap-3 px-6 py-4 rounded-sm font-bold text-lg transition-colors duration-200 ${simulation.state.operationalState === 'DISCHARGING'
+                                    ? 'bg-green-500 text-white'
                                     : simulation.state.currentTemperature < 50
-                                        ? 'bg-gray-300 text-gray-500 cursor-not-allowed'
-                                        : 'bg-blue-500 text-white hover:bg-blue-600 hover:shadow-lg hover:shadow-blue-500/30 hover:-translate-y-0.5'
+                                        ? 'bg-gray-100 text-gray-400 cursor-not-allowed'
+                                        : 'bg-blue-500 text-white hover:bg-blue-600'
                                     }`}
                             >
                                 <Wind size={24} className={simulation.state.operationalState === 'DISCHARGING' ? 'animate-spin' : ''} />
@@ -201,9 +228,9 @@ const SandBatteryExperiment: React.FC = () => {
 
                             <button
                                 onClick={simulation.actions.stop}
-                                className={`flex items-center gap-3 px-6 py-4 rounded-xl font-bold text-lg transition-all duration-300 ${simulation.state.operationalState === 'COOLING' || simulation.state.operationalState === 'STOPPED'
-                                    ? 'bg-red-500 text-white shadow-lg shadow-red-500/30 scale-105'
-                                    : 'bg-gray-500 text-white hover:bg-gray-600 hover:shadow-lg hover:shadow-gray-500/30 hover:-translate-y-0.5'
+                                className={`flex items-center gap-3 px-6 py-4 rounded-sm font-bold text-lg transition-colors duration-200 ${simulation.state.operationalState === 'COOLING' || simulation.state.operationalState === 'STOPPED'
+                                    ? 'bg-red-500 text-white'
+                                    : 'bg-gray-500 text-white hover:bg-gray-600'
                                     }`}
                             >
                                 <Square size={24} />
@@ -277,7 +304,7 @@ const SandBatteryExperiment: React.FC = () => {
                                 <div key={yearGroup.year} className="mb-10 last:mb-0">
                                     {/* Year Node */}
                                     <div className="relative pl-8 mb-6 group">
-                                        <div className="absolute w-4 h-4 bg-white border-4 border-amber-500 rounded-full -left-[9px] top-1 shadow-sm z-10 transition-transform duration-300 group-hover:scale-125"></div>
+                                        <div className="absolute w-4 h-4 bg-white border-4 border-amber-500 rounded-full -left-[9px] top-1 z-10 transition-transform duration-300"></div>
                                         <h3 className="font-heading text-2xl font-bold text-gray-900 leading-none">{yearGroup.year}</h3>
                                         <p className="text-sm font-medium text-amber-600 mt-1">{yearGroup.description}</p>
                                     </div>
@@ -287,14 +314,14 @@ const SandBatteryExperiment: React.FC = () => {
                                         {yearGroup.events.map((event, eventIndex) => (
                                             <div
                                                 key={eventIndex}
-                                                className={`relative pl-8 group transition-all duration-300 ${event.isMilestone
-                                                    ? "bg-amber-50/60 hover:bg-amber-100/60 p-5 rounded-r-xl border border-amber-200/50 shadow-sm"
-                                                    : "hover:-translate-y-1 hover:bg-white p-3 rounded-xl border border-transparent hover:border-gray-200 hover:shadow-sm"
+                                                className={`relative pl-8 group transition-colors duration-300 ${event.isMilestone
+                                                    ? "bg-amber-50/60 hover:bg-amber-100/60 p-5 rounded-r-sm border border-amber-200/50"
+                                                    : "hover:bg-gray-50 p-3 rounded-sm border border-transparent hover:border-gray-200"
                                                     }`}
                                             >
                                                 {/* Event Node */}
-                                                <div className={`absolute shadow-sm transition-transform duration-300 group-hover:scale-125 z-10 ${event.isMilestone
-                                                    ? "w-5 h-5 bg-green-500 rounded-full -left-[11px] top-6 border-4 border-white animate-pulse"
+                                                <div className={`absolute transition-transform duration-300 z-10 ${event.isMilestone
+                                                    ? "w-5 h-5 bg-green-500 rounded-full -left-[11px] top-6 border-4 border-white"
                                                     : "w-3 h-3 bg-amber-400 rounded-full -left-[7px] top-5 border-2 border-white group-hover:bg-amber-500"
                                                     }`}></div>
 
@@ -330,7 +357,7 @@ const SandBatteryExperiment: React.FC = () => {
 
                     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 pt-4">
                         {galleryImages.map((img) => (
-                            <div key={img.id} className="group relative rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 bg-white aspect-square flex flex-col cursor-pointer ring-1 ring-gray-900/5 hover:ring-amber-500/50">
+                            <div key={img.id} className="group relative rounded-sm overflow-hidden bg-white aspect-square flex flex-col cursor-pointer ring-1 ring-gray-200 hover:ring-gray-300 transition-colors duration-300">
                                 <div className="flex-1 w-full h-full relative overflow-hidden bg-gray-50 flex items-center justify-center">
                                     <img
                                         src={img.src}

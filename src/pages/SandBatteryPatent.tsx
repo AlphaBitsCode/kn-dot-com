@@ -31,6 +31,27 @@ const SandBatteryIcon: React.FC = () => (
 const SandBatteryPatent: React.FC = () => {
   useEffect(() => {
     document.title = "Sand Battery Patent Download | Kent Nguyen";
+
+    const metaDesc = document.createElement("meta");
+    metaDesc.name = "description";
+    metaDesc.content = "Download the official USPTO Patent No. 12,130,086 B1 for Thermal Storage Batteries and Thermal Storage Battery Systems by Alterno and Kent Nguyen.";
+    document.head.appendChild(metaDesc);
+
+    const metaKeywords = document.createElement("meta");
+    metaKeywords.name = "keywords";
+    metaKeywords.content = "sand battery patent, US 12,130,086 B1, Alterno patent, Kent Nguyen inventor, thermal storage technology patent";
+    document.head.appendChild(metaKeywords);
+
+    const ogTitle = document.createElement("meta");
+    ogTitle.setAttribute("property", "og:title");
+    ogTitle.content = "Sand Battery Patent Download";
+    document.head.appendChild(ogTitle);
+
+    return () => {
+      document.head.removeChild(metaDesc);
+      document.head.removeChild(metaKeywords);
+      document.head.removeChild(ogTitle);
+    };
   }, []);
 
   return (

@@ -7,10 +7,26 @@ const KentNguyenContact: React.FC = () => {
 
   useEffect(() => {
     document.title = "Contact | Kent Nguyen";
+
+    const metaDesc = document.createElement("meta");
+    metaDesc.name = "description";
+    metaDesc.content = "Get in touch with Kent Nguyen via Telegram, WhatsApp, or Email. Connect with Alpha Bits on LinkedIn and GitHub.";
+    document.head.appendChild(metaDesc);
+
+    const ogTitle = document.createElement("meta");
+    ogTitle.setAttribute("property", "og:title");
+    ogTitle.content = "Contact | Kent Nguyen";
+    document.head.appendChild(ogTitle);
+
     // Trigger animation on mount
     requestAnimationFrame(() => {
       setIsVisible(true);
     });
+
+    return () => {
+      document.head.removeChild(metaDesc);
+      document.head.removeChild(ogTitle);
+    };
   }, []);
 
   const contactItems = [

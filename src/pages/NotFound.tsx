@@ -5,10 +5,20 @@ const NotFound = () => {
   const location = useLocation();
 
   useEffect(() => {
+    document.title = "Page Not Found | Kent Nguyen";
     console.error(
       "404 Error: User attempted to access non-existent route:",
       location.pathname
     );
+
+    const metaRobots = document.createElement("meta");
+    metaRobots.name = "robots";
+    metaRobots.content = "noindex";
+    document.head.appendChild(metaRobots);
+
+    return () => {
+      document.head.removeChild(metaRobots);
+    };
   }, [location.pathname]);
 
   return (
