@@ -92,39 +92,51 @@ const SandBatteryExperiment: React.FC = () => {
     const simulation = useSandBatterySimulation(canvasRef);
 
     useEffect(() => {
+        const originalTitle = document.title;
         document.title = "Interactive Sand Battery | Kent Nguyen";
 
-        const metaDesc = document.createElement("meta");
-        metaDesc.name = "description";
-        metaDesc.content = "Interactive thermodynamic simulation of the Sand Battery. Watch it heat up to 600°C with glowing heating elements, discharge hot air at 200°C with animated airflow, and cool down naturally.";
-        document.head.appendChild(metaDesc);
+        const updateMetaTag = (selector: string, attrName: string, attrValue: string, content: string) => {
+            let meta = document.querySelector(`meta[${selector}="${attrValue}"]`);
+            let originalContent = null;
+            let created = false;
 
-        const metaKeywords = document.createElement("meta");
-        metaKeywords.name = "keywords";
-        metaKeywords.content = "sand battery, thermal energy storage, Alterno, Kent Nguyen, interactive simulation, patent 12130086";
-        document.head.appendChild(metaKeywords);
+            if (meta) {
+                originalContent = meta.getAttribute("content");
+                meta.setAttribute("content", content);
+            } else {
+                meta = document.createElement("meta");
+                meta.setAttribute(attrName, attrValue);
+                meta.setAttribute("content", content);
+                document.head.appendChild(meta);
+                created = true;
+            }
+            return { meta, originalContent, created };
+        };
 
-        const ogTitle = document.createElement("meta");
-        ogTitle.setAttribute("property", "og:title");
-        ogTitle.content = "Interactive Sand Battery Simulation";
-        document.head.appendChild(ogTitle);
-
-        const ogDesc = document.createElement("meta");
-        ogDesc.setAttribute("property", "og:description");
-        ogDesc.content = "Interactive thermodynamic simulation of the Sand Battery. Watch it heat up to 600°C with glowing heating elements, discharge hot air at 200°C with animated airflow, and cool down naturally.";
-        document.head.appendChild(ogDesc);
-
-        const ogImage = document.createElement("meta");
-        ogImage.setAttribute("property", "og:image");
-        ogImage.content = "https://www.kentnguyen.com/images/sb/IMG_20231127_164139.jpg";
-        document.head.appendChild(ogImage);
+        const desc = updateMetaTag("name", "name", "description", "Interactive thermodynamic simulation of the Sand Battery. Watch it heat up to 600°C with glowing heating elements, discharge hot air at 200°C with animated airflow, and cool down naturally.");
+        const keywords = updateMetaTag("name", "name", "keywords", "sand battery, thermal energy storage, Alterno, Kent Nguyen, interactive simulation, patent 12130086");
+        const ogTitle = updateMetaTag("property", "property", "og:title", "Interactive Sand Battery Simulation");
+        const ogDesc = updateMetaTag("property", "property", "og:description", "Interactive thermodynamic simulation of the Sand Battery. Watch it heat up to 600°C with glowing heating elements, discharge hot air at 200°C with animated airflow, and cool down naturally.");
+        const ogImage = updateMetaTag("property", "property", "og:image", "https://www.kentnguyen.com/images/sb/IMG_20231127_164139.jpg");
+        const ogUrl = updateMetaTag("property", "property", "og:url", "https://kentnguyen.com/sand-battery-experiment");
 
         return () => {
-            document.head.removeChild(metaDesc);
-            document.head.removeChild(metaKeywords);
-            document.head.removeChild(ogTitle);
-            document.head.removeChild(ogDesc);
-            document.head.removeChild(ogImage);
+            document.title = originalTitle;
+
+            const restoreOrRemove = (op: { meta: Element | null, originalContent: string | null, created: boolean }) => {
+                if (op.created && op.meta && op.meta.parentNode) {
+                    op.meta.parentNode.removeChild(op.meta);
+                } else if (op.meta && op.originalContent !== null) {
+                    op.meta.setAttribute("content", op.originalContent);
+                }
+            };
+
+            restoreOrRemove(desc);
+            restoreOrRemove(keywords);
+            restoreOrRemove(ogTitle);
+            restoreOrRemove(ogDesc);
+            restoreOrRemove(ogImage);
+            restoreOrRemove(ogUrl);
         };
     }, []);
 

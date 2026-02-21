@@ -30,39 +30,51 @@ const SandBatteryIcon: React.FC = () => (
 
 const SandBatteryPatent: React.FC = () => {
   useEffect(() => {
+    const originalTitle = document.title;
     document.title = "Sand Battery Patent Download | Kent Nguyen";
 
-    const metaDesc = document.createElement("meta");
-    metaDesc.name = "description";
-    metaDesc.content = "Download USPTO Patent No. 12,130,086 B1. This patent describes a thermal storage battery system designed to store energy as heat, particularly configured for applications such as drying agricultural and food products.";
-    document.head.appendChild(metaDesc);
+    const updateMetaTag = (selector: string, attrName: string, attrValue: string, content: string) => {
+      let meta = document.querySelector(`meta[${selector}="${attrValue}"]`);
+      let originalContent = null;
+      let created = false;
 
-    const metaKeywords = document.createElement("meta");
-    metaKeywords.name = "keywords";
-    metaKeywords.content = "sand battery patent, US 12,130,086 B1, Alterno patent, Kent Nguyen inventor, thermal storage technology patent";
-    document.head.appendChild(metaKeywords);
+      if (meta) {
+        originalContent = meta.getAttribute("content");
+        meta.setAttribute("content", content);
+      } else {
+        meta = document.createElement("meta");
+        meta.setAttribute(attrName, attrValue);
+        meta.setAttribute("content", content);
+        document.head.appendChild(meta);
+        created = true;
+      }
+      return { meta, originalContent, created };
+    };
 
-    const ogTitle = document.createElement("meta");
-    ogTitle.setAttribute("property", "og:title");
-    ogTitle.content = "Sand Battery Patent Download";
-    document.head.appendChild(ogTitle);
-
-    const ogDesc = document.createElement("meta");
-    ogDesc.setAttribute("property", "og:description");
-    ogDesc.content = "Download USPTO Patent No. 12,130,086 B1. This patent describes a thermal storage battery system designed to store energy as heat, particularly configured for applications such as drying agricultural and food products.";
-    document.head.appendChild(ogDesc);
-
-    const ogImage = document.createElement("meta");
-    ogImage.setAttribute("property", "og:image");
-    ogImage.content = "https://www.kentnguyen.com/images/sand_battery_uspto.jpg";
-    document.head.appendChild(ogImage);
+    const desc = updateMetaTag("name", "name", "description", "Download USPTO Patent No. 12,130,086 B1. This patent describes a thermal storage battery system designed to store energy as heat, particularly configured for applications such as drying agricultural and food products.");
+    const keywords = updateMetaTag("name", "name", "keywords", "sand battery patent, US 12,130,086 B1, Alterno patent, Kent Nguyen inventor, thermal storage technology patent");
+    const ogTitle = updateMetaTag("property", "property", "og:title", "Sand Battery Patent Download");
+    const ogDesc = updateMetaTag("property", "property", "og:description", "Download USPTO Patent No. 12,130,086 B1. This patent describes a thermal storage battery system designed to store energy as heat, particularly configured for applications such as drying agricultural and food products.");
+    const ogImage = updateMetaTag("property", "property", "og:image", "https://www.kentnguyen.com/images/sand_battery_uspto.jpg");
+    const ogUrl = updateMetaTag("property", "property", "og:url", "https://kentnguyen.com/sand-battery-patent-download");
 
     return () => {
-      document.head.removeChild(metaDesc);
-      document.head.removeChild(metaKeywords);
-      document.head.removeChild(ogTitle);
-      document.head.removeChild(ogDesc);
-      document.head.removeChild(ogImage);
+      document.title = originalTitle;
+
+      const restoreOrRemove = (op: { meta: Element | null, originalContent: string | null, created: boolean }) => {
+        if (op.created && op.meta && op.meta.parentNode) {
+          op.meta.parentNode.removeChild(op.meta);
+        } else if (op.meta && op.originalContent !== null) {
+          op.meta.setAttribute("content", op.originalContent);
+        }
+      };
+
+      restoreOrRemove(desc);
+      restoreOrRemove(keywords);
+      restoreOrRemove(ogTitle);
+      restoreOrRemove(ogDesc);
+      restoreOrRemove(ogImage);
+      restoreOrRemove(ogUrl);
     };
   }, []);
 
