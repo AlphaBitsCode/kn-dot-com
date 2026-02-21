@@ -144,7 +144,7 @@ const SandBatteryExperiment: React.FC = () => {
                         <iframe
                             width="100%"
                             height="100%"
-                            src="https://www.youtube.com/embed/kIrX5JcxeLE?autoplay=1"
+                            src="https://www.youtube.com/embed/Gxygg8v30OE?autoplay=1"
                             title="What is Sand Battery?"
                             frameBorder="0"
                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
