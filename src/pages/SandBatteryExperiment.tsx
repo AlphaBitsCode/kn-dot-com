@@ -114,11 +114,17 @@ const SandBatteryExperiment: React.FC = () => {
         ogDesc.content = "Interactive thermodynamic simulation of the Sand Battery. Watch it heat up to 600°C with glowing heating elements, discharge hot air at 200°C with animated airflow, and cool down naturally.";
         document.head.appendChild(ogDesc);
 
+        const ogImage = document.createElement("meta");
+        ogImage.setAttribute("property", "og:image");
+        ogImage.content = "https://www.kentnguyen.com/images/sb/IMG_20231127_164139.jpg";
+        document.head.appendChild(ogImage);
+
         return () => {
             document.head.removeChild(metaDesc);
             document.head.removeChild(metaKeywords);
             document.head.removeChild(ogTitle);
             document.head.removeChild(ogDesc);
+            document.head.removeChild(ogImage);
         };
     }, []);
 

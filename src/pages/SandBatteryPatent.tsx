@@ -52,11 +52,17 @@ const SandBatteryPatent: React.FC = () => {
     ogDesc.content = "Download USPTO Patent No. 12,130,086 B1. This patent describes a thermal storage battery system designed to store energy as heat, particularly configured for applications such as drying agricultural and food products.";
     document.head.appendChild(ogDesc);
 
+    const ogImage = document.createElement("meta");
+    ogImage.setAttribute("property", "og:image");
+    ogImage.content = "https://www.kentnguyen.com/images/sand_battery_uspto.jpg";
+    document.head.appendChild(ogImage);
+
     return () => {
       document.head.removeChild(metaDesc);
       document.head.removeChild(metaKeywords);
       document.head.removeChild(ogTitle);
       document.head.removeChild(ogDesc);
+      document.head.removeChild(ogImage);
     };
   }, []);
 
