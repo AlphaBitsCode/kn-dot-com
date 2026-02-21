@@ -217,10 +217,10 @@ const SandBatteryExperiment: React.FC = () => {
 
                     {/* Control Panel */}
                     <div className="bg-white rounded-sm p-6 border border-gray-200">
-                        <div className="flex flex-wrap items-center justify-center gap-4">
+                        <div className="flex flex-col md:flex-row items-center justify-center gap-4">
                             <button
                                 onClick={simulation.actions.startCharging}
-                                className={`flex items-center gap-3 px-6 py-4 rounded-sm font-bold text-lg transition-colors duration-200 ${simulation.state.operationalState === 'CHARGING'
+                                className={`w-full md:w-auto flex items-center justify-center gap-3 px-6 py-4 rounded-sm font-bold text-lg transition-colors duration-200 ${simulation.state.operationalState === 'CHARGING'
                                     ? 'bg-green-500 text-white'
                                     : 'bg-amber-500 text-white hover:bg-amber-600'
                                     }`}
@@ -232,7 +232,7 @@ const SandBatteryExperiment: React.FC = () => {
                             <button
                                 onClick={simulation.actions.startDischarging}
                                 disabled={simulation.state.currentTemperature < 50}
-                                className={`flex items-center gap-3 px-6 py-4 rounded-sm font-bold text-lg transition-colors duration-200 ${simulation.state.operationalState === 'DISCHARGING'
+                                className={`w-full md:w-auto flex items-center justify-center gap-3 px-6 py-4 rounded-sm font-bold text-lg transition-colors duration-200 ${simulation.state.operationalState === 'DISCHARGING'
                                     ? 'bg-green-500 text-white'
                                     : simulation.state.currentTemperature < 50
                                         ? 'bg-gray-100 text-gray-400 cursor-not-allowed'
@@ -245,7 +245,7 @@ const SandBatteryExperiment: React.FC = () => {
 
                             <button
                                 onClick={simulation.actions.stop}
-                                className={`flex items-center gap-3 px-6 py-4 rounded-sm font-bold text-lg transition-colors duration-200 ${simulation.state.operationalState === 'COOLING' || simulation.state.operationalState === 'STOPPED'
+                                className={`w-full md:w-auto flex items-center justify-center gap-3 px-6 py-4 rounded-sm font-bold text-lg transition-colors duration-200 ${simulation.state.operationalState === 'COOLING' || simulation.state.operationalState === 'STOPPED'
                                     ? 'bg-red-500 text-white'
                                     : 'bg-gray-500 text-white hover:bg-gray-600'
                                     }`}
@@ -256,8 +256,8 @@ const SandBatteryExperiment: React.FC = () => {
                         </div>
 
                         {/* Status indicator */}
-                        <div className="mt-4 pt-4 border-t border-gray-100">
-                            <div className="flex items-center justify-center gap-6 text-sm">
+                        <div className="mt-6 pt-4 border-t border-gray-100">
+                            <div className="flex flex-col md:flex-row items-center justify-center gap-3 md:gap-6 text-sm">
                                 <div className="flex items-center gap-2">
                                     <div className={`w-3 h-3 rounded-full ${simulation.state.operationalState === 'CHARGING' ? 'bg-amber-500 animate-pulse' :
                                         simulation.state.operationalState === 'DISCHARGING' ? 'bg-blue-500 animate-pulse' :
@@ -276,7 +276,7 @@ const SandBatteryExperiment: React.FC = () => {
                                                     'Standby'}
                                     </span>
                                 </div>
-                                <div className="text-gray-400">|</div>
+                                <div className="hidden md:block text-gray-400">|</div>
                                 <div className="flex items-center gap-2">
                                     <span className="text-gray-600 font-medium">Core Temp: </span>
                                     <span className={`font-bold ${simulation.state.currentTemperature < 100 ? 'text-blue-600' :
@@ -286,7 +286,7 @@ const SandBatteryExperiment: React.FC = () => {
                                         {Math.round(simulation.state.currentTemperature)}°C
                                     </span>
                                 </div>
-                                <div className="text-gray-400">|</div>
+                                <div className="hidden md:block text-gray-400">|</div>
                                 <div className="flex items-center gap-2">
                                     <span className="text-gray-600 font-medium">Output Air: </span>
                                     <span className={`font-bold ${simulation.state.outputTemperature > 100 ? 'text-red-600' :
