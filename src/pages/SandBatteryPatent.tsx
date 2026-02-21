@@ -34,7 +34,7 @@ const SandBatteryPatent: React.FC = () => {
 
     const metaDesc = document.createElement("meta");
     metaDesc.name = "description";
-    metaDesc.content = "Download the official USPTO Patent No. 12,130,086 B1 for Thermal Storage Batteries and Thermal Storage Battery Systems by Alterno and Kent Nguyen.";
+    metaDesc.content = "Download USPTO Patent No. 12,130,086 B1. This patent describes a thermal storage battery system designed to store energy as heat, particularly configured for applications such as drying agricultural and food products.";
     document.head.appendChild(metaDesc);
 
     const metaKeywords = document.createElement("meta");
@@ -47,10 +47,16 @@ const SandBatteryPatent: React.FC = () => {
     ogTitle.content = "Sand Battery Patent Download";
     document.head.appendChild(ogTitle);
 
+    const ogDesc = document.createElement("meta");
+    ogDesc.setAttribute("property", "og:description");
+    ogDesc.content = "Download USPTO Patent No. 12,130,086 B1. This patent describes a thermal storage battery system designed to store energy as heat, particularly configured for applications such as drying agricultural and food products.";
+    document.head.appendChild(ogDesc);
+
     return () => {
       document.head.removeChild(metaDesc);
       document.head.removeChild(metaKeywords);
       document.head.removeChild(ogTitle);
+      document.head.removeChild(ogDesc);
     };
   }, []);
 

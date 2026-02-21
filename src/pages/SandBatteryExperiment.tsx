@@ -96,7 +96,7 @@ const SandBatteryExperiment: React.FC = () => {
 
         const metaDesc = document.createElement("meta");
         metaDesc.name = "description";
-        metaDesc.content = "Interactive thermodynamic simulation of the patented Sand Battery by Alterno. Watch sand heat up to 600°C and understand the thermal storage system.";
+        metaDesc.content = "Interactive thermodynamic simulation of the Sand Battery. Watch it heat up to 600°C with glowing heating elements, discharge hot air at 200°C with animated airflow, and cool down naturally.";
         document.head.appendChild(metaDesc);
 
         const metaKeywords = document.createElement("meta");
@@ -111,7 +111,7 @@ const SandBatteryExperiment: React.FC = () => {
 
         const ogDesc = document.createElement("meta");
         ogDesc.setAttribute("property", "og:description");
-        ogDesc.content = "Interactive thermodynamic simulation of the patented Sand Battery by Alterno.";
+        ogDesc.content = "Interactive thermodynamic simulation of the Sand Battery. Watch it heat up to 600°C with glowing heating elements, discharge hot air at 200°C with animated airflow, and cool down naturally.";
         document.head.appendChild(ogDesc);
 
         return () => {
