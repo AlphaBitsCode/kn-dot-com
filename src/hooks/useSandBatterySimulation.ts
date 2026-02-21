@@ -29,14 +29,15 @@ const FRAME_TIME = 1000 / TARGET_FPS;
 
 // Particle system
 interface Particle {
+  progress: number;
+  speed: number;
   x: number;
   y: number;
-  vx: number;
-  vy: number;
   life: number;
   maxLife: number;
   temperature: number;
   size: number;
+  xOffset: number;
   yOffset: number;
 }
 
@@ -88,35 +89,38 @@ function particleTemperatureToColor(temp: number): string {
   return 'rgba(239, 68, 68, 0.8)'; // red-500
 }
 
-function getPipeY(x: number, layout: any): number {
+function getPipePos(progress: number, layout: any): { x: number, y: number } {
   const { centerX, centerY, batteryWidth, shellThickness, insulationThickness } = layout;
 
   const coreStartX = centerX - batteryWidth / 2 + shellThickness + insulationThickness;
   const coreEndX = centerX + batteryWidth / 2 - shellThickness - insulationThickness;
+  const coreWidth = coreEndX - coreStartX;
 
-  // Enforce centered entry/exit height
-  if (x <= coreStartX) return centerY;
-  if (x >= coreEndX) return centerY;
+  if (progress <= 0) {
+    const x = coreStartX + progress * coreWidth;
+    return { x, y: centerY };
+  }
+  if (progress >= 1) {
+    const x = coreEndX + (progress - 1) * coreWidth;
+    return { x, y: centerY };
+  }
 
-  const progress = (x - coreStartX) / (coreEndX - coreStartX);
+  // Inside the core: horizontal spiral loop
+  const loops = 5;
+  const angle = progress * Math.PI * 2 * loops;
 
-  // Calculate coiled ellipse math instead of a flat sine wave
-  // Modulo creates the repeating coil loops, Math.acos shapes it like a circle
-  const loops = 4;
-  const loopProgress = (progress * loops * 2) % 2;
-  const direction = loopProgress < 1 ? -1 : 1;
-  const xInLoop = loopProgress < 1 ? loopProgress : 2 - loopProgress;
-
-  // Base circle formula: y = sqrt(1 - x^2), stretched vertically
-  const circleOffset = Math.sin(Math.acos(1 - xInLoop * 2));
-
-  // Dampen the coils near the edges so they seamlessly connect to the straight pipes
+  // Dampen the spiral amplitude near the ends so it smoothly joins the straight pipes
   const dampenStartX = Math.sin(Math.min(1, progress * 4) * Math.PI / 2);
   const dampenEndX = Math.sin(Math.min(1, (1 - progress) * 4) * Math.PI / 2);
   const dampen = Math.min(dampenStartX, dampenEndX);
 
-  const coilHeight = 160;
-  return centerY + direction * coilHeight * circleOffset * dampen;
+  const coilRadiusX = 25 * dampen;
+  const coilRadiusY = 160 * dampen;
+
+  const x = coreStartX + progress * coreWidth + Math.sin(angle) * coilRadiusX;
+  const y = centerY + Math.cos(angle) * coilRadiusY;
+
+  return { x, y };
 }
 
 export function useSandBatterySimulation(canvasRef: React.RefObject<HTMLCanvasElement>): UseSandBatterySimulationReturn {
@@ -174,26 +178,30 @@ export function useSandBatterySimulation(canvasRef: React.RefObject<HTMLCanvasEl
     }
   }, []);
 
-  const createParticle = useCallback((randomX = false): Particle => {
+  const createParticle = useCallback((randomStart = false): Particle => {
     const layout = layoutRef.current;
 
-    const pipeTotalLength = layout.pipeLength * 2 + layout.batteryWidth;
-    let startX = layout.centerX - layout.pipeLength - layout.batteryWidth / 2;
-    if (randomX) {
-      startX += Math.random() * pipeTotalLength;
-    } else {
-      startX -= Math.random() * 50;
+    // progress represents position mapping cleanly onto math
+    const coreWidth = layout.sandCoreWidth - layout.insulationThickness * 2;
+    const speed = (4 + Math.random() * 2.5) / coreWidth;
+
+    // Start at inlet
+    let startProgress = -(layout.pipeLength + 50) / coreWidth;
+    if (randomStart) {
+      const totalLength = (layout.pipeLength * 2 + layout.batteryWidth) / coreWidth;
+      startProgress += Math.random() * totalLength;
     }
 
     return {
-      x: startX,
+      progress: startProgress,
+      speed: speed,
+      x: 0,
       y: 0,
-      vx: 4 + Math.random() * 2.5,
-      vy: 0,
       life: 0,
       maxLife: 200 + Math.random() * 100,
       temperature: ROOM_TEMP,
       size: 4 + Math.random() * 4,
+      xOffset: (Math.random() - 0.5) * 8,
       yOffset: (Math.random() - 0.5) * 16
     };
   }, []);
@@ -365,15 +373,12 @@ export function useSandBatterySimulation(canvasRef: React.RefObject<HTMLCanvasEl
     const layout = layoutRef.current;
 
     ctx.beginPath();
-    const startX = layout.centerX - layout.batteryWidth / 2 + layout.shellThickness + layout.insulationThickness;
-    const endX = layout.centerX + layout.batteryWidth / 2 - layout.shellThickness - layout.insulationThickness;
-
-    for (let x = startX; x <= endX; x += 5) {
-      const y = getPipeY(x, layout);
-      if (x === startX) {
-        ctx.moveTo(x, y);
+    for (let p = 0; p <= 1; p += 0.002) {
+      const pos = getPipePos(p, layout);
+      if (p === 0) {
+        ctx.moveTo(pos.x, pos.y);
       } else {
-        ctx.lineTo(x, y);
+        ctx.lineTo(pos.x, pos.y);
       }
     }
 
@@ -657,27 +662,28 @@ export function useSandBatterySimulation(canvasRef: React.RefObject<HTMLCanvasEl
   const updateParticles = useCallback((deltaTime: number) => {
     const state = stateRef.current;
     const layout = layoutRef.current;
-    const { centerX, batteryWidth, pipeLength, shellThickness, insulationThickness } = layout;
+    const { pipeLength, sandCoreWidth, insulationThickness } = layout;
 
     if (state.operationalState !== 'DISCHARGING') return;
 
     particlesRef.current.forEach(particle => {
-      particle.x += particle.vx;
-      particle.y = getPipeY(particle.x, layout) + particle.yOffset;
+      particle.progress += particle.speed;
+      const pos = getPipePos(particle.progress, layout);
+      particle.x = pos.x + particle.xOffset;
+      particle.y = pos.y + particle.yOffset;
       particle.life++;
 
-      if (particle.life > particle.maxLife || particle.x > centerX + batteryWidth / 2 + pipeLength + 80) {
+      const coreWidth = sandCoreWidth - insulationThickness * 2;
+      const maxProgress = 1 + (pipeLength + 80) / coreWidth;
+
+      if (particle.life > particle.maxLife || particle.progress > maxProgress) {
         Object.assign(particle, createParticle());
       }
 
-      const coreStartX = centerX - batteryWidth / 2 + shellThickness + insulationThickness;
-      const coreEndX = centerX + batteryWidth / 2 - shellThickness - insulationThickness;
-
-      if (particle.x < coreStartX) {
+      if (particle.progress <= 0) {
         particle.temperature = ROOM_TEMP;
-      } else if (particle.x >= coreStartX && particle.x <= coreEndX) {
-        const progress = (particle.x - coreStartX) / (coreEndX - coreStartX);
-        particle.temperature = ROOM_TEMP + (state.currentTemperature - ROOM_TEMP) * progress * 0.8;
+      } else if (particle.progress > 0 && particle.progress <= 1) {
+        particle.temperature = ROOM_TEMP + (state.currentTemperature - ROOM_TEMP) * particle.progress * 0.8;
       } else {
         particle.temperature = state.outputTemperature;
       }
@@ -755,12 +761,8 @@ export function useSandBatterySimulation(canvasRef: React.RefObject<HTMLCanvasEl
     // Jump start particles so we don't start with empty pipes
     const count = isMobileRef.current ? MOBILE_PARTICLE_COUNT : PARTICLE_COUNT;
     particlesRef.current = [];
-    const layout = layoutRef.current;
-    const pipeTotalLength = layout.pipeLength * 2 + layout.batteryWidth;
     for (let i = 0; i < count; i++) {
-      let p = createParticle();
-      p.x = (layout.centerX - layout.pipeLength - layout.batteryWidth / 2) + Math.random() * pipeTotalLength;
-      particlesRef.current.push(p);
+      particlesRef.current.push(createParticle(true));
     }
   }, [createParticle]);
 
