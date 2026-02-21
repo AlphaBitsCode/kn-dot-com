@@ -4,27 +4,27 @@ import React, { useEffect } from "react";
 const SandBatteryIcon: React.FC = () => (
   <svg viewBox="0 0 200 200" className="w-full h-auto" xmlns="http://www.w3.org/2000/svg">
     {/* Battery outer shell */}
-    <rect x="40" y="40" width="120" height="140" rx="8" fill="none" stroke="#6b7280" strokeWidth="3"/>
+    <rect x="40" y="40" width="120" height="140" rx="8" fill="none" stroke="#6b7280" strokeWidth="3" />
 
     {/* Battery terminals */}
-    <rect x="70" y="30" width="20" height="15" fill="#6b7280"/>
-    <rect x="110" y="30" width="20" height="15" fill="#6b7280"/>
+    <rect x="70" y="30" width="20" height="15" fill="#6b7280" />
+    <rect x="110" y="30" width="20" height="15" fill="#6b7280" />
 
     {/* Sand representation */}
-    <path d="M45 140 Q50 130 60 135 Q70 128 80 134 Q90 125 100 132 Q110 126 120 133 Q130 129 140 136 Q145 132 155 138 L155 170 Q150 165 140 168 Q130 162 120 166 Q110 160 100 164 Q90 158 80 162 Q70 156 60 160 Q50 154 45 158 Z" fill="#d4a373" opacity="0.7"/>
-    <path d="M45 155 Q50 148 60 152 Q70 145 80 150 Q90 142 100 148 Q110 144 120 150 Q130 146 140 152 Q145 148 155 154 L155 175 Q150 170 140 173 Q130 168 120 172 Q110 166 100 170 Q90 164 80 168 Q70 162 60 166 Q50 160 45 164 Z" fill="#c9a067" opacity="0.8"/>
+    <path d="M45 140 Q50 130 60 135 Q70 128 80 134 Q90 125 100 132 Q110 126 120 133 Q130 129 140 136 Q145 132 155 138 L155 170 Q150 165 140 168 Q130 162 120 166 Q110 160 100 164 Q90 158 80 162 Q70 156 60 160 Q50 154 45 158 Z" fill="#d4a373" opacity="0.7" />
+    <path d="M45 155 Q50 148 60 152 Q70 145 80 150 Q90 142 100 148 Q110 144 120 150 Q130 146 140 152 Q145 148 155 154 L155 175 Q150 170 140 173 Q130 168 120 172 Q110 166 100 170 Q90 164 80 168 Q70 162 60 166 Q50 160 45 164 Z" fill="#c9a067" opacity="0.8" />
 
     {/* Heat waves */}
-    <path d="M50 100 Q55 95 60 100 Q65 105 70 100" fill="none" stroke="#f59e0b" strokeWidth="2" opacity="0.6"/>
-    <path d="M65 85 Q70 80 75 85 Q80 90 85 85" fill="none" stroke="#f59e0b" strokeWidth="2" opacity="0.6"/>
-    <path d="M80 95 Q85 90 90 95 Q95 100 100 95" fill="none" stroke="#f59e0b" strokeWidth="2" opacity="0.6"/>
-    <path d="M95 80 Q100 75 105 80 Q110 85 115 80" fill="none" stroke="#f59e0b" strokeWidth="2" opacity="0.6"/>
-    <path d="M110 92 Q115 87 120 92 Q125 97 130 92" fill="none" stroke="#f59e0b" strokeWidth="2" opacity="0.6"/>
-    <path d="M125 78 Q130 73 135 78 Q140 83 145 78" fill="none" stroke="#f59e0b" strokeWidth="2" opacity="0.6"/>
+    <path d="M50 100 Q55 95 60 100 Q65 105 70 100" fill="none" stroke="#f59e0b" strokeWidth="2" opacity="0.6" />
+    <path d="M65 85 Q70 80 75 85 Q80 90 85 85" fill="none" stroke="#f59e0b" strokeWidth="2" opacity="0.6" />
+    <path d="M80 95 Q85 90 90 95 Q95 100 100 95" fill="none" stroke="#f59e0b" strokeWidth="2" opacity="0.6" />
+    <path d="M95 80 Q100 75 105 80 Q110 85 115 80" fill="none" stroke="#f59e0b" strokeWidth="2" opacity="0.6" />
+    <path d="M110 92 Q115 87 120 92 Q125 97 130 92" fill="none" stroke="#f59e0b" strokeWidth="2" opacity="0.6" />
+    <path d="M125 78 Q130 73 135 78 Q140 83 145 78" fill="none" stroke="#f59e0b" strokeWidth="2" opacity="0.6" />
 
     {/* Heating element coil */}
-    <path d="M60 115 Q70 110 80 115 Q90 120 100 115 Q110 110 120 115 Q130 120 140 115" fill="none" stroke="#dc2626" strokeWidth="2" opacity="0.5"/>
-    <path d="M60 122 Q70 117 80 122 Q90 127 100 122 Q110 117 120 122 Q130 127 140 122" fill="none" stroke="#dc2626" strokeWidth="2" opacity="0.5"/>
+    <path d="M60 115 Q70 110 80 115 Q90 120 100 115 Q110 110 120 115 Q130 120 140 115" fill="none" stroke="#dc2626" strokeWidth="2" opacity="0.5" />
+    <path d="M60 122 Q70 117 80 122 Q90 127 100 122 Q110 117 120 122 Q130 127 140 122" fill="none" stroke="#dc2626" strokeWidth="2" opacity="0.5" />
   </svg>
 );
 
@@ -39,18 +39,18 @@ const SandBatteryPatent: React.FC = () => {
         <h1 className="font-heading text-4xl md:text-5xl font-bold mb-12 text-gray-900">Thermal Storage Batteries and Thermal Storage Battery Systems</h1>
 
         {/* Understand Sand Battery teaser */}
-        <div className="border-l-2 border-gray-300 pl-6 mb-8">
-          <div className="flex items-center gap-6">
+        <div className="border-l-2 border-green-500 pl-6 mb-8">
+          <a href="/sand-battery-experiment" className="flex items-center gap-6 group hover:bg-gray-100 p-4 -ml-4 rounded-lg transition-colors">
             <div className="w-20 h-20 flex-shrink-0">
               <SandBatteryIcon />
             </div>
             <div>
-              <span className="font-heading text-base font-semibold text-gray-900">
+              <span className="font-heading text-lg font-semibold text-gray-900 group-hover:text-green-700 transition-colors">
                 Understand Sand Battery
               </span>
-              <span className="ml-2 text-sm text-gray-500">Coming soon</span>
+              <span className="block mt-1 text-sm text-green-600 font-medium">Explore Interactive Experiment &rarr;</span>
             </div>
-          </div>
+          </a>
         </div>
 
         <div className="border-l-2 border-gray-300 pl-6 mb-8">
