@@ -8,6 +8,7 @@ import NotFound from "./pages/NotFound";
 import SandBatteryPatent from "./pages/SandBatteryPatent";
 import SandBatteryExperiment from "./pages/SandBatteryExperiment";
 import KentNguyenContact from "./pages/KentNguyenContact";
+import AiWorkshopForFounders from "./pages/AiWorkshopForFounders";
 
 const queryClient = new QueryClient();
 
@@ -22,6 +23,7 @@ const App = () => (
           <Route path="/sand-battery-patent-download" element={<SandBatteryPatent />} />
           <Route path="/sand-battery-experiment" element={<SandBatteryExperiment />} />
           <Route path="/kent-nguyen-contact/" element={<KentNguyenContact />} />
+          <Route path="/ai-workshop-for-founders" element={<AiWorkshopForFounders />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

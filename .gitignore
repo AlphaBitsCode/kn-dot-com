@@ -11,6 +11,8 @@ node_modules
 dist
 dist-ssr
 *.local
+.env
+.env.*
 
 # Editor directories and files
 .vscode/*
@@ -33,3 +35,6 @@ dist-ssr
 .worktrees/
 .security-key
 logs/security/
+
+# Local Netlify folder
+.netlify
