@@ -4,3 +4,15 @@
 
 [functions]
   directory = "netlify/functions"
+
+# Redirect old URL to new shorter one
+[[redirects]]
+  from = "/ai-workshop-for-founders"
+  to = "/ai-workshop"
+  status = 301
+
+# SPA fallback — let React Router handle all routes
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
